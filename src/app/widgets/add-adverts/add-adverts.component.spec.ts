@@ -20,6 +20,12 @@ describe('AddAdvertsComponent', () => {
   });
 
   it('should create', () => {
+    //const fixture = TestBed.createComponent(AddAdvertsComponent);
+    //const addadverts = fixture.debugElement.componentInstance;
     expect(component).toBeTruthy();
+    // $('.title').text("UnitTestAdTitle");
+    // $('.description').text("UnitTestAdDescription");
+    // $('.image').text("https://www.google.com");
+    
   });
 });

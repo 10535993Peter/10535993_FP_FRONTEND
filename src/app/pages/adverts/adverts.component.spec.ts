@@ -20,6 +20,8 @@ describe('AdvertsComponent', () => {
   });
 
   it('should create', () => {
+    //const fixture = TestBed.createComponent(AdvertsComponent);
+    //const adverts = fixture.componentInstance;
     expect(component).toBeTruthy();
   });
 });

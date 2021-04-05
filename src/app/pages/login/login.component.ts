@@ -12,8 +12,8 @@ export class LoginComponent implements OnInit {
   public password: any = "";
   public error: string = "";
   public userService: UserService;
-  constructor(userServcie: UserService, public app: AppComponent) {
-    this.userService = userServcie;
+  constructor(userService: UserService, public app: AppComponent) {
+    this.userService = userService;
   }
 
   ngOnInit(): void {
