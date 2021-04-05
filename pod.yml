@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-10535993-deployment
+spec:
+  selector:
+    matchLabels:
+      deployment-name: frontend-10535993-pod
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        deployment-name: frontend-10535993-pod
+    spec:
+      containers:
+        - name: frontend-10535993-container
+          image: frontend-10535993-image:v1:v1
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service-label: frontend-10535993-service
+  name: frontend-10535993-service
+spec:
+  type: LoadBalancer
+  ports:
+  - name: frontend-10535993-loadbalancer-service-port
+    port: 80
+    targetPort: 80
+    protocol: TCP
+  selector:
+    deployment-name: frontend-10535993-pod
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service-label: frontend-10535993-cluster-service
+  name: frontend-10535993-cluster-service
+spec:
+  type: ClusterIP
+  ports:
+  - name: frontend-10535993-cluster-service-port
+    port: 80
+    protocol: TCP
+  selector:
+    deployment-name: frontend-10535993-pod
