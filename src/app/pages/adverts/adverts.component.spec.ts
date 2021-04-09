@@ -1,14 +1,21 @@
+// added imports
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { AppComponent } from 'src/app/app.component';
+import { AdvertService } from 'src/app/services/advert-service/advert.service';
+import { ApiService } from 'src/app/services/api-service/api.service';
 import { AdvertsComponent } from './adverts.component';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 
 describe('AdvertsComponent', () => {
   let component: AdvertsComponent;
   let fixture: ComponentFixture<AdvertsComponent>;
 
+  // added providers and imports
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdvertsComponent ]
+      declarations: [ AdvertsComponent ],
+      providers: [AdvertService, ApiService, AppComponent],
+      imports: [AppRoutingModule]
     })
     .compileComponents();
   });
@@ -20,8 +27,6 @@ describe('AdvertsComponent', () => {
   });
 
   it('should create', () => {
-    //const fixture = TestBed.createComponent(AdvertsComponent);
-    //const adverts = fixture.componentInstance;
     expect(component).toBeTruthy();
   });
 });

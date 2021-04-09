@@ -17,7 +17,7 @@ export class AddAdvertsComponent implements OnInit {
     image: ""
   };
   error:any = "";
-  constructor(private app: AppComponent, private advertService: AdvertService) { }
+  constructor(public app: AppComponent, public advertService: AdvertService) { }
 
   ngOnInit(): void {
   }

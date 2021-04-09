@@ -53,6 +53,7 @@ describe('LoginComponent', () => {
     expect($(fixture.nativeElement).find('.registerLink').length).toBe(1);
   });
 
+  //I input the below syntax based on an earlier lecture
   it('should require username and password input at login click', ()=>{
     expect($(fixture.nativeElement).find('.username').val()).toEqual("");
     expect($(fixture.nativeElement).find('.password').val()).toEqual("");
@@ -60,23 +61,19 @@ describe('LoginComponent', () => {
     expect(component.error).toBe("Both email and password are required to login");
   });
 
+  //I changed the above syntax to the below for the second error to test the variation and see how both work
   it('should validate email address syntax', ()=>{
-    $(fixture.nativeElement).find('.username').val("IncorrectEmail");
-    $(fixture.nativeElement).find('.password').val("TestPassword");
-    expect($(fixture.nativeElement).find('.username').val()).toEqual("IncorrectEmail");
-    expect($(fixture.nativeElement).find('.password').val()).toEqual("TestPassword");
-    $(fixture.nativeElement).find('.login').trigger('click');
+    component.username = "IncorrectEmail";
+    component.password = "TestPassword";
+    $('.login').click();
     expect(component.error).toBe("Please input a valid email address");
   });
 
-  it('should accept correctly formatted input values', ()=>{
-    $(fixture.nativeElement).find('.username').val("Jenny.Reid@hotmail.com");
-    $(fixture.nativeElement).find('.password').val("stocks9");
-    expect($(fixture.nativeElement).find('.username').val()).toEqual("Jenny.Reid@hotmail.com");
-    expect($(fixture.nativeElement).find('.password').val()).toEqual("stocks9");
-    $(fixture.nativeElement).find('.login').trigger('click');
-    expect(component.app.navigateToUrl).toHaveBeenCalled();
-    //expect($(fixture.nativeElement).find('.error-label textCenter').hasClass('error')).toBe(true);
+  it('should accept correctly formatted input values and navigate to next page', ()=>{
+    component.username = "Jenny.Reid@hotmail.com";
+    component.password = "stocks9";
+    $('.login').click();
+    expect(component.app.navigateToUrl).toThrow();
   });
 
 

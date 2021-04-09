@@ -21,9 +21,4 @@ describe('AdvertService', () => {
     service.getAllAdverts(newAdd);
     expect(service.api.serverCall.length).toBeGreaterThanOrEqual(1);
   });
-
-  //it('should create Ad', () => {
-  //  service.createAd();
-
-  //});
 });
