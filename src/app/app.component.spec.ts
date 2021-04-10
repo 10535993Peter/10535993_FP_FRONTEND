@@ -9,9 +9,9 @@ import { UserService } from './services/user-service/user.service';
 import { ApiService } from './services/api-service/api.service';
 
 describe('AppComponent', () => {
-  let component: LoginComponent;
-  let service: UserService;
-  let fixture: ComponentFixture<AppComponent>;
+  // let component: LoginComponent;
+  // let service: UserService;
+  // let fixture: ComponentFixture<AppComponent>;
 
 
   beforeEach(async () => {
@@ -26,11 +26,6 @@ describe('AppComponent', () => {
       ],
       providers: [ApiService, UserService, AdvertsComponent]
     }).compileComponents();
-  });
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();    
   });
 
   it('should create the app', () => {
