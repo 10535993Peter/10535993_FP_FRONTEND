@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ca-10535993-frontend-staging
+spec:
+  selector:
+    matchLabels:
+      deployment-name: ca-10535993-frontend-staging
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        deployment-name: ca-10535993-frontend-staging
+    spec:
+      containers:
+        - name: ca-10535993-frontend-container-staging
+        #image may need to be updated:
+          image: ca-10535993-frontend-image:v1:v1
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service-label: ca-10535993-frontend-service-staging
+  name: ca-10535993-frontend-service-staging
+spec:
+  type: LoadBalancer
+  ports:
+  - name: ca-10535993-frontend-loadbalancer-service-port-staging
+    port: 80
+    targetPort: 80
+    protocol: TCP
+  selector:
+    deployment-name: ca-10535993-frontend-staging
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service-label: ca-10535993-frontend-cluster-service-staging
+  name: ca-10535993-frontend-cluster-service-staging
+spec:
+  type: ClusterIP
+  ports:
+  - name: ca-10535993-frontend-cluster-service-port-staging
+    port: 80
+    protocol: TCP
+  selector:
+    deployment-name: ca-10535993-frontend-staging
