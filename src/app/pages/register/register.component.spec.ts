@@ -9,6 +9,8 @@ import { RegisterComponent } from './register.component';
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
   let fixture: ComponentFixture<RegisterComponent>;
+  let user: UserService;
+  let app: AppComponent;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -28,6 +30,8 @@ describe('RegisterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  //tests added:
 
   it('should contain one register form', ()=>{
     expect($(fixture.nativeElement).find('class[name=registerForm]')).not.toBeNull();
@@ -63,13 +67,43 @@ describe('RegisterComponent', () => {
   });
 
   it('should require all inputs at register account click', ()=>{
-    expect($(fixture.nativeElement).find('.firstname').val()).toEqual("");
-    expect($(fixture.nativeElement).find('.lastname').val()).toEqual("");
-    expect($(fixture.nativeElement).find('.username').val()).toEqual("");
-    expect($(fixture.nativeElement).find('.password').val()).toEqual("");
-    expect($(fixture.nativeElement).find('.avatar').val()).toEqual("");
     $(fixture.nativeElement).find('.login').trigger('click');
     expect(component.error).toBe("All the fields are required to register an account");
   });
 
+  it('should validate email address syntax', ()=>{
+    component.firstname = "Jim";
+    component.lastname = "Reilly";
+    component.username = "IncorrectEmail";
+    component.password = "TestPassword";
+    component.avatar = "SampleUrl";
+    $('.login').click();
+    expect(component.error).toBe("Please input a valid email address");
+  });
+
+  it('should accept correctly formatted input values and error to be empty', ()=>{
+    component.firstname = "Jim";
+    component.lastname = "Reilly";
+    component.username = "jimreilly@test.com";
+    component.password = "TestPassword";
+    component.avatar = "SampleUrl";
+    $('.login').click();
+    expect(component.error).toBe("");
+  });
+
+  // I was unable to get the below test to work. 
+
+  // it('should accept correctly formatted input values and navigate to next page', ()=>{
+  //   component.firstname = "Jim";
+  //   component.lastname = "Reilly";
+  //   component.username = "jimreilly@test.com";
+  //   component.password = "TestPassword";
+  //   component.avatar = "SampleUrl";
+  //   var anyData = "callback";
+  //   // act
+  //   $('.login').click();
+  //   user.register(component.username, component.password, component.firstname, component.lastname, component.avatar, anyData);
+  //   // assert
+  //   expect(component.app.navigateToUrl("/home")).toHaveBeenCalled();
+  // });
 });

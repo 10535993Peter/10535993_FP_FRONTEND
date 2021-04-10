@@ -8,17 +8,17 @@ import { FormsModule } from '@angular/forms';
 
 import * as $ from "jquery";
 import { AppRoutingModule } from 'src/app/app-routing.module';
-import { UserService } from 'src/app/services/user-service/user.service';
 
+// added AppComponent
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
-  let app: ComponentFixture<AppComponent>;
+  let app: AppComponent;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ LoginComponent ],
-      providers: [AppComponent, UserService],
+      providers: [AppComponent],
       imports: [FormsModule, AppRoutingModule]
     })
     .compileComponents();
@@ -34,6 +34,9 @@ describe('LoginComponent', () => {
     expect(component).toBeTruthy();
     $('.username').text("Peter");
   });
+
+  
+  //tests added:
 
   it('should contain one login form', ()=>{
     expect($(fixture.nativeElement).find('class[name=loginForm]')).not.toBeNull();
@@ -53,7 +56,6 @@ describe('LoginComponent', () => {
     expect($(fixture.nativeElement).find('.registerLink').length).toBe(1);
   });
 
-  //I input the below syntax based on an earlier lecture
   it('should require username and password input at login click', ()=>{
     expect($(fixture.nativeElement).find('.username').val()).toEqual("");
     expect($(fixture.nativeElement).find('.password').val()).toEqual("");
@@ -73,7 +75,7 @@ describe('LoginComponent', () => {
     component.username = "Jenny.Reid@hotmail.com";
     component.password = "stocks9";
     $('.login').click();
-    expect(component.app.navigateToUrl).toThrow();
+    expect(component.error).toBe("");
   });
 
 

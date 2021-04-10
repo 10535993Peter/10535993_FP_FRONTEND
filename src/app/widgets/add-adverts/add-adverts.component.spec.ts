@@ -40,13 +40,12 @@ describe('AddAdvertsComponent', () => {
     expect(component.error).toBe("All the fields are required to create an ad");
   });
 
-  it('should accept correctly formatted input values, not throw error, and close modal', () => {
+  it('should accept correctly formatted input values and not show error', () => {
     component.data.title = "TestTitle";
     component.data.description = "TestDescription";
     component.data.image = "TestImage";
     $('.createAd').click();
-    expect(component.error).not.toBe("All the fields are required to create an ad");
-    expect(component.app.closeModal).toThrow();
+    expect(component.error).toBe("");
   });
 
 });

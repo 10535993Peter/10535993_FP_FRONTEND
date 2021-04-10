@@ -16,9 +16,17 @@ describe('AdvertService', () => {
 
   //tests added:
 
-  it('should create an ad in an array', () => {
-    const newAdd = "AddTest";
-    service.getAllAdverts(newAdd);
+  it('should get all adds from /api/adverts', () => {
+    const testAdd = "AddTest";
+    service.getAllAdverts(testAdd);
     expect(service.api.serverCall.length).toBeGreaterThanOrEqual(1);
   });
+
+  it('should get all adds from /api/myAdverts/ + myId', () => {
+    const myId = "1";
+    const testAdd = "AddTest";
+    service.getMyAdverts(myId, testAdd);
+    expect(service.api.serverCall.length).toBeGreaterThanOrEqual(1);
+  });
+  
 });

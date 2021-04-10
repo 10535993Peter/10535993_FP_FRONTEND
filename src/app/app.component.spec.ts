@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { AdvertsComponent } from './pages/adverts/adverts.component';
@@ -11,7 +11,7 @@ import { ApiService } from './services/api-service/api.service';
 describe('AppComponent', () => {
   let component: LoginComponent;
   let service: UserService;
-  // let spy: any;
+  let fixture: ComponentFixture<AppComponent>;
 
 
   beforeEach(async () => {
@@ -26,6 +26,11 @@ describe('AppComponent', () => {
       ],
       providers: [ApiService, UserService, AdvertsComponent]
     }).compileComponents();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();    
   });
 
   it('should create the app', () => {

@@ -6,19 +6,20 @@ import { AdvertService } from 'src/app/services/advert-service/advert.service';
 import { ApiService } from 'src/app/services/api-service/api.service';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { UserService } from 'src/app/services/user-service/user.service';
-
+import { LoginComponent } from 'src/app/pages/login/login.component';
 
 describe('MyAdsComponent', () => {
   let component: MyAdsComponent;
   let fixture: ComponentFixture<MyAdsComponent>;
   let app: AppComponent;
   let user: UserService;
+  let login: LoginComponent;
 
   // added providers and imports
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ MyAdsComponent ],
-      providers: [AdvertService, ApiService, AppComponent, UserService],
+      providers: [AdvertService, ApiService, AppComponent, LoginComponent],
       imports: [AppRoutingModule]
     })
     .compileComponents();
@@ -35,38 +36,36 @@ describe('MyAdsComponent', () => {
   }));
 
 
-  // it('should display one ad title field', ()=>{
-  //   expect($(fixture.nativeElement).find('.title').length).toBe(1);
-  // });
+  it('should display correctly formatted date', ()=>{
+    var mockDate = "10/10/2021 10:10 am";
+    expect(component.getDateTime(mockDate)).toBe('10/10/2021 10:10 am');
+  });
 
-  // it('should display one ad description field', ()=>{
-  //   expect($(fixture.nativeElement).find('.description').length).toBe(1);
-  // });
+  it('should not incorrectly formatted date', ()=>{
+    var mockDate = "10/10/2021";
+    expect(component.getDateTime(mockDate)).not.toBe('10/10/2021');
+  });
 
-  // it('should display one date created field', ()=>{
-  //   expect($(fixture.nativeElement).find('.date created').length).toBe(1);
-  // });
+  it('should contain title', ()=>{
+    expect($(fixture.nativeElement).find('.title').length).not.toBeNull();
+  });
 
-  // it('should display one date updated field', ()=>{
-  //   expect($(fixture.nativeElement).find('.date updated').length).toBe(1);
-  // });
+  it('should contain description', ()=>{
+    expect($(fixture.nativeElement).find('.description').length).not.toBeNull();
+  });
 
-  // it('should throw error if any field is empty', () => {
-  //   component.data.title = "";
-  //   component.data.description = "";
-  //   component.data.image = "";
-  //   $('.createAd').click();
-  //   expect(component.error).toBe("All the fields are required to create an ad");
-  // });
+  it('should contain date created', ()=>{
+    expect($(fixture.nativeElement).find('.date created').length).not.toBeNull();
+  });
 
-  // it('should accept correctly formatted input values, not throw error, and close modal', () => {
-  //   component.data.title = "TestTitle";
-  //   component.data.description = "TestDescription";
-  //   component.data.image = "TestImage";
-  //   $('.createAd').click();
-  //   expect(component.error).not.toBe("All the fields are required to create an ad");
-  //   expect(component.app.closeModal).toThrow();
-  // });
+  it('should contain date updated', ()=>{
+    expect($(fixture.nativeElement).find('.date updated').length).not.toBeNull();
+  });
+
+  it('should open modal on click', ()=>{
+    $('.addAdverts shadow').click();
+    expect(component.app.openModal).toThrow();
+  });
 
 });
 
