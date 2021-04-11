@@ -15,7 +15,7 @@ spec:
       containers:
         - name: pf-10535993-frontend-container-staging
         #image may need to be updated:
-          image: pf-10535993-frontend-image:v1:v1
+          image: cab8it148.azurecr.io/pf-10535993-frontend-staging-$(Build.BuildId)-$(Release.ReleaseName)
           imagePullPolicy: Always
           ports:
           - containerPort: 80
