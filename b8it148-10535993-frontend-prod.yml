@@ -13,9 +13,9 @@ spec:
         deployment-name: pf-10535993-frontend-prod
     spec:
       containers:
-        - name: pf-10535993-frontend-container-prod
+        - name: pf-10535993-frontend-prod
         #image may need to be updated:
-          image: cab8it148.azurecr.io/pf-10535993-frontend-prod
+          image: cab8it148.azurecr.io/pf-10535993-frontend-prod:pf-10535993-frontend-prod-714109ad1eadd1f5829d8797a83d30803f993b10-Release-37
           imagePullPolicy: Always
           ports:
           - containerPort: 80

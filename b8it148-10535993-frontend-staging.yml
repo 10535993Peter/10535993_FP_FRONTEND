@@ -13,9 +13,9 @@ spec:
         deployment-name: pf-10535993-frontend-staging
     spec:
       containers:
-        - name: pf-10535993-frontend-container-staging
+        - name: pf-10535993-frontend-staging
         #image may need to be updated:
-          image: cab8it148.azurecr.io/pf-10535993-frontend-staging
+          image: cab8it148.azurecr.io/pf-10535993-frontend-staging:pf-10535993-frontend-staging-5c1d46f145e917fc2eaff1140967946cf86db819-Release-34
           imagePullPolicy: Always
           ports:
           - containerPort: 80

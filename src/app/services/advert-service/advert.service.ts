@@ -26,4 +26,12 @@ export class AdvertService {
       callback(data);
     });
   }
+
+  // added deleteAd 
+  deleteAd(id: string, callback: any){
+    this.api.serverCall("GET", "/api/deleteAd/"+id, {}, (data: any)=>{
+      callback(data);
+    });
+  }
+
 }

@@ -3,6 +3,10 @@ import { AppComponent } from 'src/app/app.component';
 import { AdvertService } from 'src/app/services/advert-service/advert.service';
 import { ApiService } from 'src/app/services/api-service/api.service';
 import { faPlus} from "@fortawesome/free-solid-svg-icons"
+import { faGrinTongueSquint } from '@fortawesome/free-solid-svg-icons';
+
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-my-ads',
@@ -10,6 +14,9 @@ import { faPlus} from "@fortawesome/free-solid-svg-icons"
   styleUrls: ['./my-ads.component.scss']
 })
 export class MyAdsComponent implements OnInit {
+  data: any = {
+    id: ""
+  };
   faPlus = faPlus;
   public adverts: any = [];
   constructor(public advertService: AdvertService, public api: ApiService, public app: AppComponent) { 
@@ -39,6 +46,25 @@ export class MyAdsComponent implements OnInit {
     let strTime = hoursString + ':' + minutesString + ' ' + ampm;
 
     return day + "/" + monthString + "/" + year + " " + strTime;
+  }
+
+  // added deleteAd 
+  deleteAd(){
+    let that = this;
+
+    this.advertService.deleteAd(this.data.id, (data:any) =>{
+      Swal.fire("Delete Ad?",
+        "Click OK to delete the ad",
+        "success"
+      ).then((data)=>{
+        if(data.isConfirmed){
+          that.app.closeModal();
+          setTimeout(()=>{
+            document.location.reload();
+          }, 100);
+        }
+      });
+    });
   }
 
 }
