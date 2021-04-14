@@ -12,7 +12,7 @@ Build is succeeding
 Deployment to Kubernetes is failing
  
 ## Screenshots
-<insert screenshot of frontend>
+![image](https://user-images.githubusercontent.com/77413132/114779013-77182800-9d6d-11eb-8d0f-0fd681938ef0.png)
 
 ## For Developers
 
