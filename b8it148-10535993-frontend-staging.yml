@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: pf-10535993-frontend-staging
-          image: __image-frontend__
+          image: cab8it148.azurecr.io/pf-10535993-frontend-staging
           imagePullPolicy: Always
           ports:
             - containerPort: 80
