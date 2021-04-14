@@ -10,9 +10,6 @@ Build is succeeding
 
 ## Deployment status
 Deployment to Kubernetes is failing
- 
-## Screenshots
-![image](https://user-images.githubusercontent.com/77413132/114779013-77182800-9d6d-11eb-8d0f-0fd681938ef0.png)
 
 ## For Developers
 
@@ -49,6 +46,9 @@ Lines        : 53.41% ( 94/176 )
 
 Users can register an account, login to the portal, view adverts, and create adverts. 
 
+## What you will see?
+![image](https://user-images.githubusercontent.com/77413132/114779013-77182800-9d6d-11eb-8d0f-0fd681938ef0.png)
+
 ## Frontend code
 
 The code is located in GitHub here: https://github.com/Ptrfloyd/b8it148-10535993-frontend
@@ -60,7 +60,7 @@ mongoDB
 ## Credits
 
 Primary contributor to code was Ehtisham H. Yasin https://github.com/ehyasin
-Secondary contriutor to code was Peter Floyd https://github.com/Ptrfloyd
+Secondary contributor to code was Peter Floyd https://github.com/Ptrfloyd
 
 ## Selenium post deployment testing
 
