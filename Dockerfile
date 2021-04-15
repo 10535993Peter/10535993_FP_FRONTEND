@@ -1,7 +1,7 @@
 ### STAGE 1: Build ###
 FROM node:14-alpine AS build
 WORKDIR /usr/src/app
-COPY package*.json ./
+COPY package*json ./
 
 RUN npm install
 COPY . .
