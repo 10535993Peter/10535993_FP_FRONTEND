@@ -16,6 +16,7 @@ spec:
         - name: pf-10535993-frontend-staging
           image: __image-frontend__
           imagePullPolicy: Always
+          tty: true
           ports:
             - containerPort: 80
 ---
