@@ -10,7 +10,7 @@ RUN npm run build
 ### STAGE 2: Run ###
 FROM nginx:1.17.1-alpine
 RUN rm -rf /usr/share/nginx/html/*
-COPY --from=build /usr/src/app/dist/b8it148-10535993-frontend /usr/share/nginx/html
+COPY --from=build /usr/src/app/dist/ca-frontend/ /usr/share/nginx/html/
 RUN rm -rf /etc/nginx/conf.d/default.conf
 COPY ./nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80
