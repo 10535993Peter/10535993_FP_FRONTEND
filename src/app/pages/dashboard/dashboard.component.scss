@@ -1,0 +1,123 @@
+@import "../../../globals.scss";
+
+.dashboardtable{
+    min-width: 100vw;
+    min-height: 80vh;
+    padding: 20px 40px;
+
+    table {
+        border-collapse: collapse;
+        border-radius: $cardBorderRadius;
+        border-style: hidden;
+        width: calc(100% - 20px);
+        font-size: 18px;
+        padding: 15px 15px;
+        min-height: 300px;
+        background-color: white;
+        color: #666;
+    }
+
+    td {
+        border-top: hidden;
+        text-align: left;
+        padding: 5px 15px;
+        min-height: 30px;
+    }
+
+    th {
+        border: 1px solid $frenchgrey;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        font-weight: 500;
+        text-align: left;
+        padding: 5px 15px;
+        min-height: 30px;
+    }
+
+    #leftcell{
+        border-right: hidden;
+    }
+
+    #middlecell{
+        border-right: 1px solid $frenchgrey;
+    }
+
+    .headerleft {
+        border-collapse: collapse;
+        border-top-left-radius: $cardBorderRadius;
+    }
+
+    .headerright {
+        border-collapse: collapse;
+        border-top-right-radius: $cardBorderRadius;
+    }
+
+    .piechart {
+        // margin-top: 300px;
+        display: block;
+        position: absolute;
+        // width: 100%;
+        // height: 100%;
+        border-radius: 0%;
+        background-image: conic-gradient(
+            pink 70deg,
+            lightblue 0 235deg,
+            orange 0);
+    }
+
+    // .tip {
+    //     background-color:black;
+    //     border:0px solid black;
+    //     border-radius: 5px;
+    //     position:absolute;
+    //     left:-200px;
+    //     top:100px;
+    // }
+
+    // #piechart {
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    // }
+
+
+    // .welcomemessage{
+    //     position: relative;
+    //     width: 100%;
+    //     padding: 20px 15px;
+    //     color: #333;
+    // }
+
+    // .navbuttons{
+    //     position: relative;
+    //     width: 100%;
+    //     padding: 20px 15px;
+    //     border-radius: $cardBorderRadius;
+    //     background-color: #333;
+    //     font-size: 18px;
+    //     min-height: 100px;
+    //     bottom: 0px;
+    // }
+
+    // button{
+    //     display: inline-block;
+    //     margin: 10px 3%;
+    //     min-height: 64px;
+    //     width: 24%;
+    //     border-radius: $borderRadius;
+    //     outline: none;
+    //     border: none;
+    //     background: rgba(171, 248, 156, 0.3);
+    //     color: #dddddd;
+    //     font-weight: 500;
+    //     font-size: 16px;
+    //     text-transform: uppercase;
+    //     position: relative;
+    //     bottom: 0px;
+    // }
+
+    // button:hover {
+    //     cursor: pointer;
+    //     background: rgba(171, 248, 156, 0.7);
+    // }
+}

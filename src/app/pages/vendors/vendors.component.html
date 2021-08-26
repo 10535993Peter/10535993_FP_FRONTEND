@@ -1,0 +1,35 @@
+<div class="registerBg">
+  <div class="registerForm">
+    <div class="textCenter heading">New Vendor Details</div>
+
+    <input type="text" class="companyname" placeholder="Company Name" [(ngModel)] = "companyname" (keyup)="fieldChange()" />
+    <input type="text" class="companycontactname" placeholder="Company contact name" [(ngModel)] = "companycontactname" (keyup)="fieldChange()" />
+    <input type="text" class="companyemail" placeholder="Company email address" [(ngModel)] = "companyemail" (keyup)="fieldChange()" />
+    <input type="text" class="Address" placeholder="Address" [(ngModel)] = "address" (keyup)="fieldChange()" />
+    <input type="internalcontact" class="internalcontact" placeholder="Internal Contact" [(ngModel)] = "internalcontact" (keyup)="fieldChange()" />
+
+    <input type="text" class="Sector" placeholder="Sector" [(ngModel)] = "sector" (keyup)="fieldChange()" />
+    <span class="error-label textCenter" [ngClass]="(error=='')?'hidden':''">{{error}}</span>
+    <button class="login" (click)="register()">Add Vendor</button>
+    <button class="clear" (click)="clear()">Clear</button>
+  </div>
+  <div class="listview">
+    <table>
+      <tr>
+        <th class=headerleft>Company</th>
+        <th>Contact</th>
+        <th class=headerright>Sector</th>
+      </tr>
+      <tr>
+        <td>AS Todin</td>
+        <td>Maria Anders</td>
+        <td>Health</td>
+      </tr>
+      <tr>
+        <td>Centro Banko Moctezuma</td>
+        <td>Francisco Chang</td>
+        <td>Banking</td>
+      </tr>
+    </table>
+  </div>
+</div>
