@@ -1,11 +1,12 @@
 <div class="loginBg">
     <div class="loginForm">
-        <div class="textCenter heading">LOGIN</div>
+        <div class="textCenter heading">TPRM Console</div>
 
         <input type="text" class="username" placeholder="username@domain.com" [(ngModel)] = "username" (keyup)="fieldChange()" />
         <input type="password" class="password" placeholder="**********" [(ngModel)] = "password" (keyup)="fieldChange()" />
         <span class="error-label textCenter" [ngClass]="(error=='')?'hidden':''">{{error}}</span>
-        <div class="registerLink" [routerLink] = "['/register']">CREATE A NEW ACCOUNT</div>
+        <!-- <div class="registerLink" [routerLink] = "['/register']">CREATE A NEW ACCOUNT</div> -->
         <button class="login" (click)="login()">Login</button>
+        <div class="textCenter body">For login issues please contact support@tprm.com</div>
     </div>
 </div>

@@ -1,4 +1,4 @@
-## b8it148-10535993-api
+## fp-api
 This project requires a frontend that communicates with this backend API and displays the data that is returned by the API. The application developed for the project displays adverts that and uploaded by application users. It allows for user registeration, account login, advert creation and advert viewing.
 This api was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.2. To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
@@ -15,7 +15,7 @@ Deployment to Kubernetes is failing
 
 ## API Reference
 
-The API documents can be accessed here: https://github.com/Ptrfloyd/b8it148-10535993-api.git
+The API documents can be accessed here:
 
 ## API run
 
@@ -51,7 +51,7 @@ Users can register an account, login to the portal, view adverts, and create adv
 
 ## Frontend code
 
-The code is located in GitHub here: https://github.com/Ptrfloyd/b8it148-10535993-frontend
+The code is located in GitHub here:
 
 ## Database
 

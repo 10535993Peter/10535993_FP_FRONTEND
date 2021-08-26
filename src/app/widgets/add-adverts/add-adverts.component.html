@@ -1,6 +1,0 @@
-<input [(ngModel)] = "data.title" type="text" (keyup)="fieldChange()" placeholder="Ad Title"/>
-<input [(ngModel)] = "data.description" (keyup)="fieldChange()" type="text" placeholder="Ad Description"/>
-<input [(ngModel)] = "data.image" type="text" (keyup)="fieldChange()" placeholder="Featured Image URL"/>
-<span class="error-label textCenter" [ngClass]="(error=='')?'hidden':''">{{error}}</span>
-<button class="createAd" (click)="createAd()">CREATE AD</button>
-

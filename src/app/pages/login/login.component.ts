@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
       this.userService.login(this.username, this.password, (data: any)=>{
         if(data.status != undefined && data.status == "success"){
           that.app.user = data.user;
-          that.app.navigateToUrl("/home");
+          that.app.navigateToUrl("/dashboard");
         } else {
           that.error = data.error;
         }

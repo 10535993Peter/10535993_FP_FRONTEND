@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ca-frontend';
+  title = 'fp-frontend';
   user: any = null;
   constructor(
     protected router: Router, 
@@ -22,9 +22,7 @@ export class AppComponent {
   ngOnInit(){
     if(this.user == null){
       this.navigateToUrl('/login');
-    } else {
-      this.navigateToUrl('/home');
-    }
+    } else {}
   }
 
   navigateToUrl(url: string){

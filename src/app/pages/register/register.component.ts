@@ -7,12 +7,14 @@ import { UserService } from 'src/app/services/user-service/user.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
+
 export class RegisterComponent implements OnInit {
-  public username: any = "";
-  public password: any = "";
   public firstname: any = "";
   public lastname: any = "";
-  public avatar: any = "";
+  public username: any = "";
+  public email: any = "";
+  public password: any = "";
+  public companyname: any = "";
   public error: string = "";
   public userService: UserService;
   
@@ -32,15 +34,15 @@ export class RegisterComponent implements OnInit {
 
     let that = this;
 
-    if(this.username == "" || this.password == "" || this.firstname == "" || this.lastname == "" || this.avatar == ""){
+    if(this.firstname == "" || this.lastname == "" || this.username == "" || this.email == "" || this.password == "" ||  this.companyname == ""){
       this.error = "All the fields are required to register an account";
     } else if (!re.test(this.username)){
       this.error = "Please input a valid email address";
     } else{
-      this.userService.register(this.username, this.password, this.firstname, this.lastname, this.avatar, (data: any)=>{
+      this.userService.register(this.firstname, this.lastname, this.username, this.email, this.password, this.companyname, (data: any)=>{
         if(data.status != undefined && data.status == "success"){
           that.app.user = data.user;
-          that.app.navigateToUrl("/home");
+          that.app.navigateToUrl("/register");
         } else {
           that.error = data.error;
         }

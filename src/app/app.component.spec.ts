@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { AdvertsComponent } from './pages/adverts/adverts.component';
 import { HeaderComponent } from './widgets/header/header.component';
 import { LoginComponent } from './pages/login/login.component';
 import { UserService } from './services/user-service/user.service';
@@ -24,7 +23,7 @@ describe('AppComponent', () => {
         HeaderComponent,
         LoginComponent
       ],
-      providers: [ApiService, UserService, AdvertsComponent]
+      providers: [ApiService, UserService]
     }).compileComponents();
   });
 
@@ -34,10 +33,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'ca-frontend'`, () => {
+  it(`should have as title 'fp-frontend'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('ca-frontend');
+    expect(app.title).toEqual('fp-frontend');
   });
 
   //tests added:
@@ -74,7 +73,7 @@ describe('AppComponent', () => {
   //   const fixture = TestBed.createComponent(AppComponent);
   //   fixture.detectChanges();
   //   const compiled = fixture.debugElement.nativeElement;
-  //   expect(compiled.querySelector('h1').textContent).toContain('ca-frontend app is running');
+  //   expect(compiled.querySelector('h1').textContent).toContain('fp-frontend app is running');
   // });
 
 
@@ -82,7 +81,7 @@ describe('AppComponent', () => {
   //   if(this.user == null){
   //     this.navigateToUrl('/login');
   //   } else {
-  //     this.navigateToUrl('/home');
+  //     this.navigateToUrl('/dashboard');
   //   }
   // }
 

@@ -76,7 +76,6 @@ describe('RegisterComponent', () => {
     component.lastname = "Reilly";
     component.username = "IncorrectEmail";
     component.password = "TestPassword";
-    component.avatar = "SampleUrl";
     $('.login').click();
     expect(component.error).toBe("Please input a valid email address");
   });
@@ -86,7 +85,6 @@ describe('RegisterComponent', () => {
     component.lastname = "Reilly";
     component.username = "jimreilly@test.com";
     component.password = "TestPassword";
-    component.avatar = "SampleUrl";
     $('.login').click();
     expect(component.error).toBe("");
   });
@@ -104,6 +102,6 @@ describe('RegisterComponent', () => {
   //   $('.login').click();
   //   user.register(component.username, component.password, component.firstname, component.lastname, component.avatar, anyData);
   //   // assert
-  //   expect(component.app.navigateToUrl("/home")).toHaveBeenCalled();
+  //   expect(component.app.navigateToUrl("/dashboard")).toHaveBeenCalled();
   // });
 });

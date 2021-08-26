@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomePageComponent } from './pages/home-page/home-page.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './pages/login/login.component';
-import { MyAdsComponent } from './pages/my-ads/my-ads.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { AddAdvertsComponent } from './widgets/add-adverts/add-adverts.component';
+import { QuestionnairesComponent } from './pages/questionnaires/questionnaires.component';
+import { VendorsComponent } from './pages/vendors/vendors.component';
+import { UploadsComponent } from './pages/uploads/uploads.component';
+import { TestPage2Component } from './pages/test-page2/test-page2.component';
+import { SettingsComponent } from './pages/settings/settings.component';
+
 
 const routes: Routes = [
     {
@@ -24,19 +28,34 @@ const routes: Routes = [
 		component : RegisterComponent
 	},
 	{
-		path : 'home',
+		path : 'dashboard',
 		pathMatch : 'full',
-		component : HomePageComponent
+		component : DashboardComponent
 	},
 	{
-		path : 'myAds',
+		path : 'questionnaires',
 		pathMatch : 'full',
-		component : MyAdsComponent
+		component : QuestionnairesComponent
 	},
 	{
-		path: 'addAdvert',
-		outlet: 'modal',
-		component: AddAdvertsComponent
+		path : 'vendors',
+		pathMatch : 'full',
+		component : VendorsComponent
+	},
+	{
+		path : 'uploads',
+		pathMatch : 'full',
+		component : UploadsComponent
+	},
+	{
+		path : 'test-page2',
+		pathMatch : 'full',
+		component : TestPage2Component
+	},
+	{
+		path : 'settings',
+		pathMatch : 'full',
+		component : SettingsComponent
 	},
 ];
 

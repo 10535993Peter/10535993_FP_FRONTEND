@@ -1,15 +1,47 @@
 <div class="registerBg">
     <div class="registerForm">
-        <div class="textCenter heading">REGISTER</div>
+        <div class="textCenter heading">New User Details</div>
 
-        <input type="text" class="firstname" placeholder="John" [(ngModel)] = "firstname" (keyup)="fieldChange()" />
-        <input type="text" class="lastname" placeholder="Smith" [(ngModel)] = "lastname" (keyup)="fieldChange()" />
-        <input type="text" class="username" placeholder="username@domain.com" [(ngModel)] = "username" (keyup)="fieldChange()" />
-        <input type="password" class="password" placeholder="**********" [(ngModel)] = "password" (keyup)="fieldChange()" />
-
-        <input type="text" class="avatar" placeholder="Profile Avatar Link" [(ngModel)] = "avatar" (keyup)="fieldChange()" />
+        <input type="text" class="inputleft" placeholder="firstname" [(ngModel)] = "firstname" (keyup)="fieldChange()" />
+        <input type="text" class="inputright" placeholder="lastname" [(ngModel)] = "lastname" (keyup)="fieldChange()" />
+        <input type="text" class="inputleft" placeholder="username" [(ngModel)] = "username" (keyup)="fieldChange()" />
+        <input type="password" class="inputright" placeholder="password" [(ngModel)] = "password" (keyup)="fieldChange()" />
+        <input type="text" class="inputleft" placeholder="email address" [(ngModel)] = "email" (keyup)="fieldChange()" />
+        <input type="text" class="inputright" placeholder="Company Name" [(ngModel)] = "companyname" (keyup)="fieldChange()" />
         <span class="error-label textCenter" [ngClass]="(error=='')?'hidden':''">{{error}}</span>
-        <div class="loginLink" [routerLink] = "['/login']">ALREADY REGISTERED?</div>
-        <button class="login" (click)="register()">REGISTER ACCOUNT</button>
+        <button class="login" (click)="register()">Add User</button>
     </div>
+
+    <div class="listview">
+      <table>
+        <colgroup>
+          <col class="column1">
+          <col class="column2">
+        </colgroup>
+        <tr>
+          <th colspan="2" class="tabletitle">Company Profile</th>
+        </tr>
+        <tr>
+          <th>Name:</th>
+          <td></td>
+        </tr>
+        <tr>
+          <th>Address:</th>
+          <td></td>
+        </tr>
+        <tr>
+          <th>Sector:</th>
+          <td></td>
+        </tr>
+        <tr>
+          <th>Primary Contact:</th>
+          <td></td>
+        </tr>
+        <tr>
+          <th>Company Contact</th>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+    
 </div>

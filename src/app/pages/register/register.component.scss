@@ -3,19 +3,18 @@
 .registerBg{
     min-width: 100vw;
     min-height: 100vh;
+    padding: 20px 40px;
+ 
     .registerForm{
-        width: 80vw;
-        max-width: 550px;
-        padding: 25px;
+        float: left;
+        width: calc(50% - 20px);
+        padding: 20px 15px;
         border-radius: $cardBorderRadius;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: rgba(0,0,0,0.3);
+        background-color: #333;
         font-size: 18px;
         min-height: 300px;
-
+    }
+    
         .heading{
             color: white;
             margin-bottom: 25px;
@@ -23,25 +22,15 @@
         }
     
         input{
-            display: block;
-            width: calc(100% - 20px);
+            // display: left;
+            width: calc(50% - 20px);
             padding: 10px;
             outline: none;
             border: none;
             margin: 10px;
             border-radius: $borderRadius;
             min-height: 44px;
-            font-size: 16px;
-        }
-
-        .loginLink{
-            font-size: 16px;
-            font-weight: 500;
-            color: $white;
-            text-align: center;
-            margin: 15px;
-            outline: none;
-            border:none;
+            font-size: 1.1vw;
         }
 
         .error-label{
@@ -57,7 +46,7 @@
             font-weight: 300;
         }
     
-        .login{
+        button{
             display: block;
             width: calc(100% - 20px);
             margin: 10px;
@@ -65,13 +54,47 @@
             border-radius: $borderRadius;
             outline: none;
             border: none;
-            background: $primaryGreen;
-            color: $white;
+            background: rgba(171, 248, 156, 0.3);
+            color: #dddddd;
             font-weight: 500;
             font-size: 16px;
             text-transform: uppercase;
             position: relative;
             bottom: 0px;
         }
-    }
+
+        button:hover {
+            cursor: pointer;
+            background: rgba(171, 248, 156, 0.7);
+        }
+
+        //table css
+        table {
+            float: right;
+            border-collapse: collapse;
+            border-radius: $cardBorderRadius;
+            border-style: hidden;    
+            width: calc(50% - 20px);
+            font-size: 18px;
+            padding: 15px 15px;
+            min-height: 300px;
+            background-color: white;
+        }
+        
+        .tabletitle {
+            border-bottom: 1px solid $frenchgrey;
+        }
+
+        td, th {
+            text-align: left;
+            padding: 5px 15px;
+            min-height: 30px;
+        }
+        
+        // td:first-child {
+        //     background-color: #333;
+        //     color: white;
+        //     margin-bottom: 15px;
+        //     font-weight: 500;
+        // }
 }

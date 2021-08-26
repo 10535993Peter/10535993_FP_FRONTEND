@@ -1,7 +1,34 @@
-$primaryGreen: #49796b;
-$midnightGreen: #004953;
+$primaryGreen: #5da85d;
+$frenchgrey: #d6d6ca;
+$black: #333;
 
-$white: #fff;
+$white: rgba(228, 228, 228, 0.856);
 
 $cardBorderRadius: 10px;
 $borderRadius: 3px;
+
+H1 {
+    font: 24px;
+}
+
+// @media screen and (max-width: 1024px) {
+//     your font  style goes here
+    
+//     }
+    
+//     @media screen and (max-width: 950px) {
+//      your font  style goes here
+    
+//     }
+    
+    
+//     @media screen and (max-width: 650px) {
+//      your font  style goes here
+    
+    
+//     }
+    
+//     @media screen and (max-width: 480px) {
+//      your font  style goes here
+    
+//     }
