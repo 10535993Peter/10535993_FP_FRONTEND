@@ -52,9 +52,6 @@ describe('LoginComponent', () => {
     expect($(fixture.nativeElement).find('.password').val()).toEqual("");
   });
 
-  it('should contain the register link', ()=>{
-    expect($(fixture.nativeElement).find('.registerLink').length).toBe(1);
-  });
 
   it('should require username and password input at login click', ()=>{
     expect($(fixture.nativeElement).find('.username').val()).toEqual("");
