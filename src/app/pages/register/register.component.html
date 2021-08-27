@@ -6,7 +6,7 @@
         <input type="text" class="lastname" placeholder="lastname" [(ngModel)] = "lastname" (keyup)="fieldChange()" />
         <input type="text" class="username" placeholder="username" [(ngModel)] = "username" (keyup)="fieldChange()" />
         <input type="password" class="password" placeholder="password" [(ngModel)] = "password" (keyup)="fieldChange()" />
-        <input type="text" class="emailaddress" placeholder="email address" [(ngModel)] = "email" (keyup)="fieldChange()" />
+        <input type="text" class="emailaddress" placeholder="email address" [(ngModel)] = "emailaddress" (keyup)="fieldChange()" />
         <input type="text" class="companyname" placeholder="Company Name" [(ngModel)] = "companyname" (keyup)="fieldChange()" />
         <span class="error-label textCenter" [ngClass]="(error=='')?'hidden':''">{{error}}</span>
         <button class="register" (click)="register()">Add User</button>
