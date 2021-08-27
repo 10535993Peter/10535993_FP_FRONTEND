@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: pf-frontend-staging
-          image: b8it131registry.azurecr.io/pf-frontend-staging
+          image: b8it131reg2.azurecr.io/pf-frontend-staging
           imagePullPolicy: Always
           ports:
             - containerPort: 80
