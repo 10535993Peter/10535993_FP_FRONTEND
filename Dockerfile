@@ -3,6 +3,7 @@ FROM node:14-alpine AS build
 WORKDIR /usr/src/app
 COPY package*json ./
 
+ARG CONFIG
 RUN npm install
 COPY . .
 RUN npm run build -- --configuration=$CONFIG
