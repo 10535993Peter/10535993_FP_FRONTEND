@@ -8,7 +8,7 @@ import { UserService } from 'src/app/services/user-service/user.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  public username: any = "";
+  public email: any = "";
   public password: any = "";
   public error: string = "";
   public userService: UserService;
@@ -27,12 +27,12 @@ export class LoginComponent implements OnInit {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     let that = this;
-    if(this.username == "" || this.password == ""){
+    if(this.email == "" || this.password == ""){
       this.error = "Both email and password are required to login";
-    } else if (!re.test(this.username)){
+    } else if (!re.test(this.email)){
       this.error = "Please input a valid email address";
     } else {
-      this.userService.login(this.username, this.password, (data: any)=>{
+      this.userService.login(this.email, this.password, (data: any)=>{
         if(data.status != undefined && data.status == "success"){
           that.app.user = data.user;
           that.app.navigateToUrl("/dashboard");

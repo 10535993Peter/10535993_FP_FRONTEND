@@ -11,10 +11,10 @@ import { UserService } from 'src/app/services/user-service/user.service';
 export class RegisterComponent implements OnInit {
   public firstname: any = "";
   public lastname: any = "";
-  public username: any = "";
-  public emailaddress: any = "";
+  public email: any = "";
   public password: any = "";
-  public companyname: any = "";
+  public mobile: any = "";
+  public company: any = "";
   public error: string = "";
   public userService: UserService;
 
@@ -23,6 +23,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
   fieldChange(){
@@ -34,12 +35,12 @@ export class RegisterComponent implements OnInit {
 
     let that = this;
 
-    if(this.firstname == "" || this.lastname == "" || this.username == "" || this.emailaddress == "" || this.password == "" ||  this.companyname == ""){
+    if(this.firstname == "" || this.lastname == "" || this.mobile == "" || this.email == "" || this.password == "" ||  this.company == ""){
       this.error = "All the fields are required to register an account";
-    } else if (!re.test(this.username)){
+    } else if (!re.test(this.email)){
       this.error = "Please input a valid email address";
     } else{
-      this.userService.register(this.firstname, this.lastname, this.username, this.emailaddress, this.password, this.companyname, (data: any)=>{
+      this.userService.register(this.firstname, this.lastname, this.email, this.password, this.mobile, this.company, (data: any)=>{
         if(data.status != undefined && data.status == "success"){
           that.app.user = data.user;
           that.app.navigateToUrl("/register");

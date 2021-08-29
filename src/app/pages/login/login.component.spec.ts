@@ -32,7 +32,7 @@ describe('LoginComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-    $('.username').text("Peter");
+    $('.email').text("Peter");
   });
 
   
@@ -42,9 +42,9 @@ describe('LoginComponent', () => {
     expect($(fixture.nativeElement).find('class[name=loginForm]')).not.toBeNull();
   });
 
-  it('should contain one username field and it initiates as an empty field', ()=>{
-    expect($(fixture.nativeElement).find('.username').length).toBe(1);
-    expect($(fixture.nativeElement).find('.username').val()).toEqual("");
+  it('should contain one email field and it initiates as an empty field', ()=>{
+    expect($(fixture.nativeElement).find('.email').length).toBe(1);
+    expect($(fixture.nativeElement).find('.email').val()).toEqual("");
   });
 
   it('should contain one password field and it initiates as an empty field', ()=>{
@@ -53,8 +53,8 @@ describe('LoginComponent', () => {
   });
 
 
-  it('should require username and password input at login click', ()=>{
-    expect($(fixture.nativeElement).find('.username').val()).toEqual("");
+  it('should require email and password input at login click', ()=>{
+    expect($(fixture.nativeElement).find('.email').val()).toEqual("");
     expect($(fixture.nativeElement).find('.password').val()).toEqual("");
     $(fixture.nativeElement).find('.login').trigger('click');
     expect(component.error).toBe("Both email and password are required to login");
@@ -62,14 +62,14 @@ describe('LoginComponent', () => {
 
   //I changed the above syntax to the below for the second error to test the variation and see how both work
   it('should validate email address syntax', ()=>{
-    component.username = "IncorrectEmail";
+    component.email = "IncorrectEmail";
     component.password = "TestPassword";
     $('.login').click();
     expect(component.error).toBe("Please input a valid email address");
   });
 
   it('should accept correctly formatted input values and navigate to next page', ()=>{
-    component.username = "Jenny.Reid@hotmail.com";
+    component.email = "Jenny.Reid@hotmail.com";
     component.password = "stocks9";
     $('.login').click();
     expect(component.error).toBe("");
@@ -123,7 +123,7 @@ describe('LoginComponent', () => {
   //   loginSpy = spyOn(authService , 'loginByUsernameAndPassword').and.callThrough();
   //   loginElement = fixture.debugElement.query(By.css('form'));
   //   // to set values
-  //   component.userService.login(this.username['testuser'], this.password['password']);
+  //   component.userService.login(this.email['testuser'], this.password['password']);
   //   component.loginForm.controls['password'].setValue('123');
   //   loginElement.triggerEventHandler('ngSubmit', null);
   //   expect(loginSpy).toHaveBeenCalledTimes(1); // check that service is called once

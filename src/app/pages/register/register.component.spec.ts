@@ -47,9 +47,9 @@ describe('RegisterComponent', () => {
     expect($(fixture.nativeElement).find('.lastname').val()).toEqual("");
   });
 
-  it('should contain one username field and it initiates as an empty field', ()=>{
-    expect($(fixture.nativeElement).find('.username').length).toBe(1);
-    expect($(fixture.nativeElement).find('.username').val()).toEqual("");
+  it('should contain one mobile field and it initiates as an empty field', ()=>{
+    expect($(fixture.nativeElement).find('.mobile').length).toBe(1);
+    expect($(fixture.nativeElement).find('.mobile').val()).toEqual("");
   });
 
   it('should contain one password field and it initiates as an empty field', ()=>{
@@ -58,8 +58,8 @@ describe('RegisterComponent', () => {
   });
 
   it('should contain one email address field and it initiates as an empty field', ()=>{
-    expect($(fixture.nativeElement).find('.emailaddress').length).toBe(1);
-    expect($(fixture.nativeElement).find('.emailaddress').val()).toEqual("");
+    expect($(fixture.nativeElement).find('.email').length).toBe(1);
+    expect($(fixture.nativeElement).find('.email').val()).toEqual("");
   });
 
   it('should require all inputs at register account click', ()=>{
@@ -70,7 +70,7 @@ describe('RegisterComponent', () => {
   // it('should validate email address syntax', ()=>{
   //   component.firstname = "Jim";
   //   component.lastname = "Reilly";
-  //   component.username = "IncorrectEmail";
+  //   component.mobile = "IncorrectEmail";
   //   component.password = "TestPassword";
   //   $('.register').click();
   //   expect(component.error).toBe("Please input a valid email address");
@@ -79,10 +79,10 @@ describe('RegisterComponent', () => {
   // it('should accept correctly formatted input values and error to be empty', ()=>{
   //   component.firstname = "Jim";
   //   component.lastname = "Reilly";
-  //   component.username = "jimreilly";
+  //   component.mobile = "jimreilly";
   //   component.password = "TestPassword";
-  //   component.emailaddress = "jim.reily@gmail.com";
-  //   component.companyname = "McKesson";
+  //   component.email = "jim.reily@gmail.com";
+  //   component.company = "McKesson";
   //   $('.register').click();
   //   expect(component.error).toBe("");
   // });
@@ -92,13 +92,13 @@ describe('RegisterComponent', () => {
   // it('should accept correctly formatted input values and navigate to next page', ()=>{
   //   component.firstname = "Jim";
   //   component.lastname = "Reilly";
-  //   component.username = "jimreilly@test.com";
+  //   component.mobile = "jimreilly@test.com";
   //   component.password = "TestPassword";
   //   component.avatar = "SampleUrl";
   //   var anyData = "callback";
   //   // act
   //   $('.login').click();
-  //   user.register(component.username, component.password, component.firstname, component.lastname, component.avatar, anyData);
+  //   user.register(component.mobile, component.password, component.firstname, component.lastname, component.avatar, anyData);
   //   // assert
   //   expect(component.app.navigateToUrl("/dashboard")).toHaveBeenCalled();
   // });

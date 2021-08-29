@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  [x: string]: any;
   title = 'fp-frontend';
   user: any = null;
   constructor(

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
-import { UserService } from 'src/app/services/user-service/user.service';
+import { VendorService } from 'src/app/services/vendor-service/vendor.service';
 
 @Component({
   selector: 'app-vendors',
@@ -9,23 +9,22 @@ import { UserService } from 'src/app/services/user-service/user.service';
 })
 export class VendorsComponent implements OnInit {
 
-  public companyname: any = "";
+  public company: any = "";
   public companycontactname: any = "";
   public companyemail: any = "";
   public address: any = "";
   public internalcontact: any = "";
   public sector: any = "";
   public error: string = "";
-  public userService: UserService;
+  public vendorService: VendorService;
   
-  constructor(userService: UserService, public app: AppComponent) {
-    this.userService = userService;
+  constructor(vendorService: VendorService, public app: AppComponent) {
+    this.vendorService = vendorService;
   }
 
   ngOnInit(): void {
   }
 
-  
   fieldChange(){
     this.error = "";
   }
@@ -35,15 +34,15 @@ export class VendorsComponent implements OnInit {
 
     let that = this;
 
-    if(this.companyname == "" || this.companycontactname == "" || this.address == "" || this.companyemail == "" || this.internalcontact == "" ||  this.sector == ""){
+    if(this.company == "" || this.companycontactname == "" || this.address == "" || this.companyemail == "" || this.internalcontact == "" ||  this.sector == ""){
       this.error = "All the fields are required to register a vendor";
     } else if (!re.test(this.companyemail)){
       this.error = "Please input a valid email address";
     } else{
-      this.userService.register(this.companyname, this.companycontactname, this.address, this.companyemail, this.internalcontact, this.sector, (data: any)=>{
+      this.vendorService.register(this.company, this.companycontactname, this.companyemail, this.address, this.internalcontact, this.sector, (data: any)=>{
         if(data.status != undefined && data.status == "success"){
-          that.app.user = data.user;
-          that.app.navigateToUrl("/vendor");
+          that.app.vendor = data.vendor;
+          that.app.navigateToUrl("/vendors");
         } else {
           that.error = data.error;
         }
@@ -52,7 +51,7 @@ export class VendorsComponent implements OnInit {
   }
 
   clear(){
-    this.companyname == "";
+    this.company == "";
     this.companycontactname == "";
     this.address == "";
     this.companyemail == "";

@@ -5,9 +5,7 @@ import { ApiService } from '../api-service/api.service';
   providedIn: 'root'
 })
 export class UserService {
-  // newuser(username: any, password: any, firstname: any, lastname: any, avatar: any, arg5: (data: any) => void) {
-  //   throw new Error('Method not implemented.');
-  // }
+
   private api: ApiService;
   constructor(api: ApiService) { 
     this.api = api;
@@ -37,9 +35,10 @@ export class UserService {
     });
   }
 
-  register(firstName: any, lastName: any, username: any, email: any, password: any, avatar: any, callback: any){
-    this.api.serverCall("POST", "/api/register", {firstName: firstName, lastName: lastName, email: email, username: username, password: password, avatar: avatar}, (data: any)=>{
+  register(firstName: any, lastName: any, email: any, password: any, mobile: any, company: any, callback: any){
+    this.api.serverCall("POST", "/api/register", {firstName: firstName, lastName: lastName, email: email, password: password, mobile: mobile, company: company}, (data: any)=>{
       callback(data);
     });
   }
+
 }
