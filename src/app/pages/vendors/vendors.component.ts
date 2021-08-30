@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { AppComponent } from 'src/app/app.component';
+import { ApiService } from 'src/app/services/api-service/api.service';
 import { VendorService } from 'src/app/services/vendor-service/vendor.service';
 
 @Component({
@@ -8,18 +10,24 @@ import { VendorService } from 'src/app/services/vendor-service/vendor.service';
   styleUrls: ['./vendors.component.scss']
 })
 export class VendorsComponent implements OnInit {
+  faPlus = faPlus;
+  public vendors: any = [];
 
   public company: any = "";
-  public companycontactname: any = "";
-  public companyemail: any = "";
+  public companyContactName: any = "";
+  public companyEmail: any = "";
   public address: any = "";
-  public internalcontact: any = "";
+  public internalContact: any = "";
   public sector: any = "";
   public error: string = "";
-  public vendorService: VendorService;
+  // public vendorService: VendorService;
   
-  constructor(vendorService: VendorService, public app: AppComponent) {
-    this.vendorService = vendorService;
+  constructor(public vendorService: VendorService, public api: ApiService, public app: AppComponent) {
+    let that = this;
+    this.vendorService.getAllVendors((data:any)=>{
+      that.vendors = data;
+    });
+    // this.vendorService = vendorService;
   }
 
   ngOnInit(): void {
@@ -34,12 +42,12 @@ export class VendorsComponent implements OnInit {
 
     let that = this;
 
-    if(this.company == "" || this.companycontactname == "" || this.address == "" || this.companyemail == "" || this.internalcontact == "" ||  this.sector == ""){
+    if(this.company == "" || this.companyContactName == "" || this.address == "" || this.companyEmail == "" || this.internalContact == "" ||  this.sector == ""){
       this.error = "All the fields are required to register a vendor";
-    } else if (!re.test(this.companyemail)){
+    } else if (!re.test(this.companyEmail)){
       this.error = "Please input a valid email address";
     } else{
-      this.vendorService.register(this.company, this.companycontactname, this.companyemail, this.address, this.internalcontact, this.sector, (data: any)=>{
+      this.vendorService.register(this.company, this.companyContactName, this.companyEmail, this.address, this.internalContact, this.sector, (data: any)=>{
         if(data.status != undefined && data.status == "success"){
           that.app.vendor = data.vendor;
           that.app.navigateToUrl("/vendors");
@@ -52,11 +60,15 @@ export class VendorsComponent implements OnInit {
 
   clear(){
     this.company == "";
-    this.companycontactname == "";
+    this.companyContactName == "";
     this.address == "";
-    this.companyemail == "";
-    this.internalcontact == "";
+    this.companyEmail == "";
+    this.internalContact == "";
     this.sector == "";
   }
+
+
+  columns = ["Company", "Company Contact", "Address", "Company Email", "Internal Contact", "Sector"];
+  index = ["company", "companyContactName", "address", "companyEmail", "internalContact", "sector"];
 
 }

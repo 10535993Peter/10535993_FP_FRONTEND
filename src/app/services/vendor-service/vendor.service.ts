@@ -6,19 +6,19 @@ import { ApiService } from '../api-service/api.service';
 })
 export class VendorService {
 
-  private api: ApiService;
-  constructor(api: ApiService) { 
-    this.api = api;
+  // private api: ApiService;
+  constructor(public api: ApiService) { 
+    // this.api = api;
   }
 
 
-  register(company: any, companycontactname: any, companyemail: any, address: any, internalcontact: any, sector: any, callback: any){
-    this.api.serverCall("POST", "/api/vendors", {company: company, companycontactname: companycontactname, companyemail: companyemail, address: address, internalcontact: internalcontact, sector: sector}, (data: any)=>{
+  register(company: any, companyContactName: any, companyEmail: any, address: any, internalContact: any, sector: any, callback: any){
+    this.api.serverCall("POST", "/api/vendors", {company: company, companyContactName: companyContactName, companyEmail: companyEmail, address: address, internalContact: internalContact, sector: sector}, (data: any)=>{
       callback(data);
     });
   }
 
-  getAll(callback: any) {
+  getAllVendors(callback: any) {
     this.api.serverCall("GET", "/api/vendors", null, (data: any)=>{
       callback(data);
   });
