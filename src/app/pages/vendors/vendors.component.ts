@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPlus} from '@fortawesome/free-solid-svg-icons';
 import { AppComponent } from 'src/app/app.component';
 import { ApiService } from 'src/app/services/api-service/api.service';
 import { VendorService } from 'src/app/services/vendor-service/vendor.service';
@@ -24,7 +24,7 @@ export class VendorsComponent implements OnInit {
   
   constructor(public vendorService: VendorService, public api: ApiService, public app: AppComponent) {
     let that = this;
-    this.vendorService.getAllVendors((data:any)=>{
+    this.vendorService.getAll((data:any)=>{
       that.vendors = data;
     });
     // this.vendorService = vendorService;
@@ -32,6 +32,9 @@ export class VendorsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  columns = ["Company", "Company Contact", "Address", "Company Email", "Internal Contact", "Sector"];
+  index = ["company", "companyContactName", "address", "companyEmail", "internalContact", "sector"];
 
   fieldChange(){
     this.error = "";
@@ -67,8 +70,16 @@ export class VendorsComponent implements OnInit {
     this.sector == "";
   }
 
+  search(): void {
+    let that = this;
+    this.vendorService.getByCompany(this.app.vendors.company, (data:any)=>{
+      that.vendors = data;
+    })
+  }
 
-  columns = ["Company", "Company Contact", "Address", "Company Email", "Internal Contact", "Sector"];
-  index = ["company", "companyContactName", "address", "companyEmail", "internalContact", "sector"];
-
+  getMyAdverts(id: string, callback: any){
+    this.api.serverCall("GET", "/api/myAdverts/"+id, {}, (data: any)=>{
+      callback(data);
+    });
+  }
 }

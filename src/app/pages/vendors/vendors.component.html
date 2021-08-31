@@ -10,13 +10,20 @@
 
     <input type="text" class="sector" placeholder="Sector" [(ngModel)] = "sector" (keyup)="fieldChange()" />
     <span class="error-label textCenter" [ngClass]="(error=='')?'hidden':''">{{error}}</span>
-    <button class="registerVendor" (click)="register()">Add Vendor</button>
-    <button class="clear" (click)="clear()">Clear</button>
+    <div id="buttonfriends"><button class="registerVendor" (click)="register()">Add Vendor</button>
+    <button class="clear" (click)="clear()">Clear</button></div>
+    
   </div>
   <div class="listview">
     <table id="vendorslist">
       <tr>
-        <th class=headerleft *ngFor="let col of columns">{{col}}</th> 
+        <td colspan="6" class="searchrow">
+          <div class="formsearch"><input type="text" placeholder="Search by company" [(ngModel)]="company"/></div>
+          <button class="searchbutton" type="button" (click)="search()">Search</button>
+        </td>
+      </tr>
+      <tr>
+        <th class=header *ngFor="let col of columns">{{col}}</th> 
         <!-- <th>Contact</th>
         <th class=headerright>Sector</th> -->
       </tr>

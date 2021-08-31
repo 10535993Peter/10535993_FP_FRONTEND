@@ -2,8 +2,10 @@
 
 .registerBg{
     min-width: 100vw;
+    max-width: 100%;
     min-height: 80vh;
     padding: 20px 40px;
+}
  
     .registerForm{
         float: left;
@@ -44,10 +46,14 @@
             min-height: 30px;
             font-weight: 300;
         }
-    
+        
+        #buttonfriends{
+            width: 100%;
+        }
+
         button{
-            display: block;
-            width: calc(100% - 20px);
+            display: inline-block;
+            width: calc(50% - 20px);
             margin: 10px;
             min-height: 44px;
             border-radius: $borderRadius;
@@ -62,23 +68,54 @@
             bottom: 0px;
         }
 
+        button.searchbutton{
+            display: inline-block;
+            padding: 10px;
+            width: calc(20% - 20px);
+            outline: none;
+            margin: 10px;
+            min-height: 44px;
+            font-size: 1.1vw;
+        }
+
         button:hover {
             cursor: pointer;
             background: rgba(171, 248, 156, 0.7);
         }
 
-        // Table css
+        // Table scss
+        .listview{
+            float: right;
+            width: calc(45% - 20px);
+        }
 
         table {
-            float: right;
             border-collapse: collapse;
             border-radius: $cardBorderRadius;
             border-style: hidden;    
-            width: calc(50% - 20px);
-            font-size: 18px;
-            padding: 15px 15px;
+            font-size: auto;
+            padding: 10x 10px;
             min-height: 300px;
             background-color: white;
+        }
+
+        .searchrow{
+            background: $black;
+            border-collapse: collapse;
+            border-top-right-radius: $cardBorderRadius;
+            border-top-left-radius: $cardBorderRadius;
+        }
+
+        input.formsearch{
+            display: inline-block;
+            padding: 10px;
+            width: calc(60% - 20px);
+            outline: none;
+            background: white;
+            font: #333;
+            margin: 10px;
+            min-height: 44px;
+            font-size: 1.1vw;
         }
         
         td {
@@ -98,14 +135,3 @@
             padding: 5px 15px;
             min-height: 30px;
         }
-        
-        .headerleft {
-            border-collapse: collapse;
-            border-top-left-radius: $cardBorderRadius;
-        }
-        
-        .headerright {
-            border-collapse: collapse;
-            border-top-right-radius: $cardBorderRadius;
-        }
-}
