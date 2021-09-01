@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<!-- <meta charset="UTF-8">
-	<title>Side Navigation Bar</title>
-	<link rel="stylesheet" href="styles.css"> -->
-	<script src="https://kit.fontawesome.com/8ba0cbc41e.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
   <div class="topnav">
     <div class="topnav-right">
-      <li><label><i class="fas fa-user"></i>Bob</label></li>
+      <li><label><i class="fa fa-user"></i> My Profile</label></li>
     </div>
   </div>
   <div class="wrapper">
@@ -17,28 +14,21 @@
     <ul class="sidebar">
       <div class="sidebar-top">
         <a href="#" class="menu-bars" id="hide-menu">
-            <i class="fas fa-bars nav-icon"></i>
+            <i class="fa fa-bars"></i>
         </a>
-        <h2>TPRM</h2>
+        <h2 class=trpm> TPRM</h2>
       </div>
         <!-- Second level list -->
         <div class="submenu">
           <ul>
-            <!-- <li class="fas fa-home" [routerLink] = "['/dashboard']">Dashboard</li>
-            <li class="fas fa-question" [routerLink] = "['/questionnaires']">Questionnaires</li>
-            <li class="fas fa-users" [routerLink] = "['/register']">Users</li>
-            <li class="fas fa-building" [routerLink] = "['/vendors']">Vendors</li>
-            <li class="fas fa-upload" [routerLink] = "['/uploads']">Uploads</li>
-            <li class="fas fa-wrench nav-icon" [routerLink] = "['/settings']">Settings</li>  -->
-            <li class="nav" [routerLink] = "['/dashboard']">Dashboard</li>
-            <li class="nav" [routerLink] = "['/questionnaires']">Questionnaires</li>
-            <li class="nav" [routerLink] = "['/register']">Users</li>
-            <li class="nav" [routerLink] = "['/vendors']">Vendors</li>
-            <li class="nav" [routerLink] = "['/uploads']">Uploads</li>
-            <li class="nav" [routerLink] = "['/settings']">Settings</li> 
-            <li class="nav" [routerLink] = "['/test-page2']">TestPage2</li>
+            <li class="nav" [routerLink] = "['/dashboard']"><i class="fa fa-home"></i> Dashboard</li>
+            <li class="nav" [routerLink] = "['/questionnaires']"><i class="fa fa-question"></i> Questionnaires</li>
+            <li class="nav" [routerLink] = "['/register']"><i class="fa fa-users"></i> Users</li>
+            <li class="nav" [routerLink] = "['/vendors']"><i class="fa fa-building"></i> Vendors</li>
+            <li class="nav" [routerLink] = "['/uploads']"><i class="fa fa-upload"></i> Uploads</li>
+            <li class="nav" [routerLink] = "['/settings']"><i class="fa fa-gear"></i> Settings</li> 
             <div class="submenu-2">
-              <li class="nav" (click)=logout()>Logout</li> 
+              <li class="nav" (click)=logout()><i class="fa fa-sign-out"></i> Logout</li> 
             </div>
           </ul> 
         </div>

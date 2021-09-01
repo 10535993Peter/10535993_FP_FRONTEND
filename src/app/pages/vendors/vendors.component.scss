@@ -1,38 +1,26 @@
 @import "../../../globals.scss";
 
 .registerBg{
-    min-width: 100vw;
-    max-width: 100%;
-    min-height: 80vh;
+    // min-width: 100vw;
+    width: 100%;
+    // min-height: 80vh;
+    height: calc(100%-100px);
     padding: 20px 40px;
-}
+
  
-    .registerForm{
+    .form{
         float: left;
-        width: calc(50% - 20px);
+        width: calc(30% - 20px);
         padding: 20px 15px;
         border-radius: $cardBorderRadius;
         background-color: #333;
         font-size: 18px;
-        min-height: 300px;
-    }   
-
+        height: 100%;
+    
         .heading{
             color: white;
             margin-bottom: 15px;
             font-weight: 500;
-        }
-    
-        input{
-            // display: left;
-            width: calc(50% - 20px);
-            padding: 10px;
-            outline: none;
-            border: none;
-            margin: 10px;
-            border-radius: $borderRadius;
-            min-height: 44px;
-            font-size: 1.1vw;
         }
 
         .error-label{
@@ -50,10 +38,27 @@
         #buttonfriends{
             width: 100%;
         }
-
+    }
+            
+        input{
+            // display: left;
+            display: inline-block;
+            width: calc(50% - 20px);
+            padding: 10px;
+            outline: none;
+            border: none;
+            margin: 10px;
+            border-radius: $borderRadius;
+            min-height: 44px;
+            font-size: 0.8vw;
+            position: relative;
+            bottom: 0px;
+        }
+        
         button{
             display: inline-block;
             width: calc(50% - 20px);
+            padding: 10px;
             margin: 10px;
             min-height: 44px;
             border-radius: $borderRadius;
@@ -71,7 +76,7 @@
         button.searchbutton{
             display: inline-block;
             padding: 10px;
-            width: calc(20% - 20px);
+            // width: calc(20% - 20px);
             outline: none;
             margin: 10px;
             min-height: 44px;
@@ -86,8 +91,9 @@
         // Table scss
         .listview{
             float: right;
-            width: calc(45% - 20px);
-        }
+            width: calc(65% - 20px);
+            height: 100%;
+        
 
         table {
             border-collapse: collapse;
@@ -95,8 +101,9 @@
             border-style: hidden;    
             font-size: auto;
             padding: 10x 10px;
-            min-height: 300px;
+            // min-height: 300px;
             background-color: white;
+            height: calc(100%-20px);
         }
 
         .searchrow{
@@ -109,29 +116,36 @@
         input.formsearch{
             display: inline-block;
             padding: 10px;
-            width: calc(60% - 20px);
+            // width: calc(60% - 20px);
             outline: none;
             background: white;
             font: #333;
             margin: 10px;
             min-height: 44px;
-            font-size: 1.1vw;
+            // font-size: 11vw;
         }
         
         td {
             border: 2px solid $frenchgrey;
             text-align: left;
-            padding: 5px 15px;
-            min-height: 30px;
+            padding: 5px 10px;
+            min-height: 20px;
         }
 
         th {
             border-style: hidden;
             background-color: #333;
             color: white;
-            margin-bottom: 15px;
-            font-weight: 500;
+            margin-bottom: 10px;
+            // font-weight: 400;
             text-align: left;
-            padding: 5px 15px;
-            min-height: 30px;
+            padding: 5px 10px;
+            min-height: 20px;
         }
+
+        #scrolldiv{
+            height: 100%;
+            overflow-y: scroll;
+        }
+    }
+}

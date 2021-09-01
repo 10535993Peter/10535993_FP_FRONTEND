@@ -1,10 +1,10 @@
 <div class="registerBg">
-  <div class="registerForm">
+  <div class="form">
     <div class="textCenter heading">New Vendor Details</div>
 
     <input type="text" class="company" placeholder="Company" [(ngModel)] = "company" (keyup)="fieldChange()" />
-    <input type="text" class="companyContactName" placeholder="Company contact name" [(ngModel)] = "companyContactName" (keyup)="fieldChange()" />
-    <input type="text" class="companyEmail" placeholder="Company email address" [(ngModel)] = "companyEmail" (keyup)="fieldChange()" />
+    <input type="text" class="companyContactName" placeholder="Company contact" [(ngModel)] = "companyContactName" (keyup)="fieldChange()" />
+    <input type="text" class="companyEmail" placeholder="Company email" [(ngModel)] = "companyEmail" (keyup)="fieldChange()" />
     <input type="text" class="address" placeholder="Address" [(ngModel)] = "address" (keyup)="fieldChange()" />
     <input type="internalContact" class="internalContact" placeholder="Internal Contact" [(ngModel)] = "internalContact" (keyup)="fieldChange()" />
 
@@ -14,29 +14,23 @@
     <button class="clear" (click)="clear()">Clear</button></div>
     
   </div>
+
   <div class="listview">
     <table id="vendorslist">
       <tr>
         <td colspan="6" class="searchrow">
-          <div class="formsearch"><input type="text" placeholder="Search by company" [(ngModel)]="company"/></div>
-          <button class="searchbutton" type="button" (click)="search()">Search</button>
+          <div class="formsearch"><input type="text" placeholder="Search by company" [(ngModel)]="company"/>
+          <button class="searchbutton" type="button" (click)="search()">Search</button></div>
         </td>
       </tr>
-      <tr>
-        <th class=header *ngFor="let col of columns">{{col}}</th> 
-        <!-- <th>Contact</th>
-        <th class=headerright>Sector</th> -->
-      </tr>
-      <tr *ngFor="let vendor of vendors">
-        <td *ngFor="let col of index">{{vendor[col]}}</td>
-        <!-- <td>Maria Anders</td>
-        <td>Health</td> -->
-      </tr>
-      <!-- <tr>
-        <td>Centro Banko Moctezuma</td>
-        <td>Francisco Chang</td>
-        <td>Banking</td>
-      </tr> -->
+      <div id="scrolldiv">
+        <tr>
+          <th class=header *ngFor="let col of columns">{{col}}</th> 
+        </tr>
+        <tr class=tablebody *ngFor="let vendor of vendors">
+          <td *ngFor="let col of index">{{vendor[col]}}</td>
+        </tr>
+    </div>
     </table>
   </div>
 </div>
