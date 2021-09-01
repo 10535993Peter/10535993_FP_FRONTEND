@@ -6,40 +6,31 @@
 <body>
   <div class="topnav">
     <div class="topnav-right">
-      <li><label><i class="fa fa-user"></i> My Profile</label></li>
+      <li><label> My Profile <i class="fa fa-user"></i></label></li>
     </div>
+    <h2 class=topnav-left> TPRM</h2>
   </div>
   <div class="wrapper">
     <!-- First level  -->
     <ul class="sidebar">
-      <div class="sidebar-top">
-        <a href="#" class="menu-bars" id="hide-menu">
-            <i class="fa fa-bars"></i>
-        </a>
-        <h2 class=trpm> TPRM</h2>
-      </div>
+      <!-- <div class="sidebar-title"> -->
+        <!-- <h2 class=sidebar-title> TPRM</h2> -->
+      <!-- </div> -->
         <!-- Second level list -->
-        <div class="submenu">
-          <ul>
-            <li class="nav" [routerLink] = "['/dashboard']"><i class="fa fa-home"></i> Dashboard</li>
-            <li class="nav" [routerLink] = "['/questionnaires']"><i class="fa fa-question"></i> Questionnaires</li>
-            <li class="nav" [routerLink] = "['/register']"><i class="fa fa-users"></i> Users</li>
-            <li class="nav" [routerLink] = "['/vendors']"><i class="fa fa-building"></i> Vendors</li>
-            <li class="nav" [routerLink] = "['/uploads']"><i class="fa fa-upload"></i> Uploads</li>
-            <li class="nav" [routerLink] = "['/settings']"><i class="fa fa-gear"></i> Settings</li> 
-            <div class="submenu-2">
-              <li class="nav" (click)=logout()><i class="fa fa-sign-out"></i> Logout</li> 
-            </div>
+        <!-- <div class="submenu"> -->
+          <ul class="submenu">
+            <li class="nav" [routerLink] = "['/dashboard']"> Dashboard <i class="fa fa-home"></i></li>
+            <li class="nav" [routerLink] = "['/questionnaires']"> Questionnaires <i class="fa fa-question"></i></li>
+            <li class="nav" [routerLink] = "['/register']"> Users <i class="fa fa-users"></i> </li>
+            <li class="nav" [routerLink] = "['/vendors']"> Vendors <i class="fa fa-building"></i></li>
+            <li class="nav" [routerLink] = "['/uploads']"> Uploads <i class="fa fa-upload"></i></li>
+            <li class="nav" [routerLink] = "['/settings']"> Settings <i class="fa fa-gear"></i></li> 
+            <li class="nav" (click)=logout()> Logout <i class="fa fa-sign-out"></i></li> 
           </ul> 
-        </div>
-      </ul>
+        <!-- </div> -->
+    </ul>
     <main class="page_content">
-        <!-- <div class="header">Welcome!! Have a nice day.</div>  
-        <div class="info">
-          <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A sed nobis ut exercitationem atque accusamus sit natus officiis totam blanditiis at eum nemo, nulla et quae eius culpa eveniet voluptatibus repellat illum tenetur, facilis porro.</div>
 
-          <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A sed nobis ut exercitationem atque accusamus sit natus officiis totam blanditiis at eum nemo, nulla et quae eius culpa eveniet voluptatibus repellat illum tenetur, facilis porro. Quae fuga odio perferendis itaque alias sint, beatae non maiores magnam ad, veniam tenetur atque ea exercitationem earum eveniet totam ipsam magni tempora aliquid ullam possimus? Tempora nobis facere porro, praesentium magnam provident accusamus temporibus! Repellendus harum veritatis itaque molestias repudiandae ea corporis maiores non obcaecati libero, unde ipsum consequuntur aut consectetur culpa magni omnis vero odio suscipit vitae dolor quod dignissimos perferendis eos? Consequuntur!</div>
-      </div> -->
     </main>
   </div>
 </body>

@@ -22,6 +22,7 @@ body{
 /* INSERTS */
 /* Add a black background color to the top navigation */
 .topnav {
+  width: 100%;
   background-color: #333;
   color: #f2f2f2;
   overflow: hidden;
@@ -31,10 +32,10 @@ body{
 .topnav label {
   float: left;
   background-color: #333;
-  padding: 14px 16px;
+  padding: 14px 40px;
   text-decoration: none;
   font-size: 20px;
-  width: 200px;
+  width: 260px;
   height: 80px;
   display: flex;
   justify-content: start;
@@ -53,57 +54,61 @@ body{
   float: right;
 }
 
-.wrapper .sidebar{
-  width: 200px;
-  height: 100%;
-  margin-top: -80px;
-  position: fixed;
-}
 
-.sidebar-top {
-  width: 100%;
+.topnav-left {
+  float: left;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  width: 80px;
   height: 80px;
-  background-color: #333;
-  padding-left: 10px;
-  color: #fff;
   display: flex;
   justify-content: start;
   align-items: center;
 }
 
-// .menu-bars{
+.wrapper .sidebar{
+  width: 240px;
+  height: 100%;
+  // margin-top: -80px;
+  // position: fixed;
+}
+
+// .sidebar-title {
+//   width: 100%;
+//   height: 80px;
+//   background-color: #333;
+//   padding-left: 10px;
 //   color: #fff;
-//   margin-right: 10px;
+//   display: flex;
+//   justify-content: start;
+//   align-items: center;
 // }
 
 .fa {
+  font: 20px;
   color: #fff;
-  margin-right: 15px;
+  margin: 0px 20px 0px 40px;
 }
 
 .submenu {
-  display: none;
+  position: fixed;
+  top: 80px;
+  left: -160px;
+  transition: .5s;
   height: 100%;
-  width: 200px;
+  width: 240px;
   background-color: #333;
   color: #fff;
 }
 
-.wrapper .sidebar-top:hover {
-  background-color: #ddd;
-  color: black;
-  cursor: pointer;
+.nav {
+  text-align: right;
 }
 
-.wrapper .sidebar:hover .submenu {
-  display: block;
+.wrapper .submenu:hover {
   position: fixed;
-}
-
-.nav-link-buttons:active, .nav-link-buttons-2:active {
-	color: white;
-	background-color: #6e6366;
-	text-decoration: underline;
+  left: 0;
 }
 
 .topnav label:active {
@@ -116,47 +121,14 @@ body{
 
 .wrapper .sidebar ul li{
   width: 100%;
-  padding: 15px;
+  padding: 1.5vw 15px;
   border-bottom: 1px solid #bdb8d7;
   border-bottom: 1px solid rgba(0,0,0,0.05);
   border-top: 1px solid rgba(255,255,255,0.05);
 }    
 
-// .wrapper .sidebar ul li{
-//   color: #bdb8d7;
-//   cursor: pointer;
-// }
-
 .wrapper .sidebar ul li:hover{
   background-color: #ddd;
   color: black;
   cursor: pointer;
-}
- 
-.wrapper .submenu-2{
-  width: 200px;
-  bottom: 0px;
-  // display: flex;
-  justify-content: start;
-  align-items: center;
-}
-.wrapper .page_content{
-  width: 100%;
-}
-
-.wrapper .page_content .header{
-  padding: 20px;
-  background: #fff;
-  color: red;
-  border-bottom: 1px solid #e0e4e8;
-}
-
-.wrapper .page_content .info{
-  margin: 20px;
-  color: #717171;
-  line-height: 25px;
-}
-
-.wrapper .page_content .info div{
-  margin-bottom: 20px;
 }
