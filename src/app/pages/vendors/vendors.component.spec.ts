@@ -13,7 +13,7 @@ describe('VendorsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ VendorsComponent ],
-      providers: [AppComponent],//will need vendors service provider, check register component
+      providers: [AppComponent],
       imports: [FormsModule, AppRoutingModule]
     })
     .compileComponents();

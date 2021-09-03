@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './pages/register/register.component';
+import { UserComponent } from './pages/user/user.component';
 // import { AdvertPageComponent } from './pages/advert-page/advert-page.component';
 import { AppProvider } from './app.init.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -28,7 +28,7 @@ export function userProvider(provider: AppProvider) {
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent,
+    UserComponent,
     DashboardComponent,
     HeaderComponent,
     TestPage2Component,

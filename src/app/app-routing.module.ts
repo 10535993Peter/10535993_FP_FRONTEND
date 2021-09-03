@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './pages/register/register.component';
+import { UserComponent } from './pages/user/user.component';
 import { QuestionnairesComponent } from './pages/questionnaires/questionnaires.component';
 import { VendorsComponent } from './pages/vendors/vendors.component';
 import { UploadsComponent } from './pages/uploads/uploads.component';
@@ -23,9 +23,9 @@ const routes: Routes = [
 		component : LoginComponent
 	},
     {
-		path : 'register',
+		path : 'users',
 		pathMatch : 'full',
-		component : RegisterComponent
+		component : UserComponent
 	},
 	{
 		path : 'dashboard',

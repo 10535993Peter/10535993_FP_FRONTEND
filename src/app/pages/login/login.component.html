@@ -5,7 +5,6 @@
         <input type="text" class="email" placeholder="email@domain.com" [(ngModel)] = "email" (keyup)="fieldChange()" />
         <input type="password" class="password" placeholder="**********" [(ngModel)] = "password" (keyup)="fieldChange()" />
         <span class="error-label textCenter" [ngClass]="(error=='')?'hidden':''">{{error}}</span>
-        <!-- <div class="registerLink" [routerLink] = "['/register']">CREATE A NEW ACCOUNT</div> -->
         <button class="login" (click)="login()">Login</button>
         <div class="textCenter body">For login issues please contact support@tprm.com</div>
     </div>

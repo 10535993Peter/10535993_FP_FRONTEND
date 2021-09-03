@@ -36,7 +36,19 @@ export class UserService {
   }
 
   register(firstName: any, lastName: any, email: any, password: any, mobile: any, company: any, callback: any){
-    this.api.serverCall("POST", "/api/register", {firstName: firstName, lastName: lastName, email: email, password: password, mobile: mobile, company: company}, (data: any)=>{
+    this.api.serverCall("POST", "/api/users", {firstName: firstName, lastName: lastName, email: email, password: password, mobile: mobile, company: company}, (data: any)=>{
+      callback(data);
+    });
+  }
+
+  getAll(callback: any) {
+    this.api.serverCall("GET", "/api/users", null, (data: any)=>{
+      callback(data);
+    });
+  }
+
+  getByEmail(email: string, callback: any){
+    this.api.serverCall("GET", "/api/users/"+email, {}, (data: any)=>{
       callback(data);
     });
   }
