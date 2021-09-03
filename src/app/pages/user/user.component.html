@@ -11,10 +11,11 @@
         <input type="text" class="mobile" placeholder="mobile" [(ngModel)] = "mobile" (keyup)="fieldChange()" />
         <input type="text" class="company" placeholder="Company" [(ngModel)] = "company" (keyup)="fieldChange()" />
         <span class="error-label textCenter" [ngClass]="(error=='')?'hidden':''">{{error}}</span>
-        <button class="register" (click)="register()">Add User</button>
-    </div>
+        <div id="buttonfriends"><button class="register" (click)="register()">Add User</button>
+          <button class="clear" (click)="clear()">Clear</button></div>
+      </div>
     <div *ngIf="submitted">
-      <h3>Submitted Successfully</h3>
+      <h3 class="message">User added successfully</h3>
       <button (click)="clear()">Ok</button>
     </div>
   </div>

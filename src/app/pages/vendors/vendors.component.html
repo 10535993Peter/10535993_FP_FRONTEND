@@ -1,25 +1,30 @@
 <div class="background">
   <div class="form">
-    <div class="textCenter heading">New Vendor Details</div>
+    <div *ngIf="!submitted">
+      <div class="textCenter heading">New Vendor Details</div>
 
-    <input type="text" class="company" placeholder="Company" [(ngModel)] = "company" (keyup)="fieldChange()" />
-    <input type="text" class="companyContactName" placeholder="Company contact" [(ngModel)] = "companyContactName" (keyup)="fieldChange()" />
-    <input type="text" class="companyEmail" placeholder="Company email" [(ngModel)] = "companyEmail" (keyup)="fieldChange()" />
-    <input type="text" class="address" placeholder="Address" [(ngModel)] = "address" (keyup)="fieldChange()" />
-    <input type="internalContact" class="internalContact" placeholder="Internal Contact" [(ngModel)] = "internalContact" (keyup)="fieldChange()" />
+      <input type="text" class="company" placeholder="Company" [(ngModel)] = "company" (keyup)="fieldChange()" />
+      <input type="text" class="companyContactName" placeholder="Company contact" [(ngModel)] = "companyContactName" (keyup)="fieldChange()" />
+      <input type="text" class="companyEmail" placeholder="Company email" [(ngModel)] = "companyEmail" (keyup)="fieldChange()" />
+      <input type="text" class="address" placeholder="Address" [(ngModel)] = "address" (keyup)="fieldChange()" />
+      <input type="internalContact" class="internalContact" placeholder="Internal Contact" [(ngModel)] = "internalContact" (keyup)="fieldChange()" />
 
-    <input type="text" class="sector" placeholder="Sector" [(ngModel)] = "sector" (keyup)="fieldChange()" />
-    <span class="error-label textCenter" [ngClass]="(error=='')?'hidden':''">{{error}}</span>
-    <div id="buttonfriends"><button class="registerVendor" (click)="register()">Add Vendor</button>
-    <button class="clear" (click)="clear()">Clear</button></div>
-    
+      <input type="text" class="sector" placeholder="Sector" [(ngModel)] = "sector" (keyup)="fieldChange()" />
+      <span class="error-label textCenter" [ngClass]="(error=='')?'hidden':''">{{error}}</span>
+      <div id="buttonfriends"><button class="registerVendor" (click)="register()">Add Vendor</button>
+      <button class="clear" (click)="clear()">Clear</button></div>
+    </div>
+    <div *ngIf="submitted">
+      <h3 class="message">Vendor added successfully</h3>
+      <button class="confirmationButton" (click)="clear()">Ok</button>
+    </div>
   </div>
 
   <div class="listview">
     <table id="vendorslist">
       <tr>
         <td colspan="6" class="searchrow">
-          <div class="formsearch"><input type="text" placeholder="Search by company" [(ngModel)]="company"/>
+          <div class="formsearch"><input type="text" placeholder="Search by company" [(ngModel)]="companySearch"/>
           <button class="searchbutton" type="button" (click)="search()">Search</button></div>
         </td>
       </tr>

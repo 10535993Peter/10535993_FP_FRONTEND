@@ -31,6 +31,11 @@
             // min-height: 30px;
             font-weight: 300;
         }
+
+        .message{
+            color: white;
+            text-align: center;
+        }
         
         #buttonfriends{
             width: 100%;
@@ -68,6 +73,12 @@
             text-transform: uppercase;
             position: relative;
             bottom: 0px;
+        }
+
+        .confirmationButton{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         button.searchbutton{

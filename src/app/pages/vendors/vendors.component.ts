@@ -19,7 +19,9 @@ export class VendorsComponent implements OnInit {
   public address: any = "";
   public internalContact: any = "";
   public sector: any = "";
+  public companySearch: any = "";
   public error: string = "";
+  public submitted = false;
   // public vendorService: VendorService;
   
   constructor(public vendorService: VendorService, public api: ApiService, public app: AppComponent) {
@@ -53,7 +55,7 @@ export class VendorsComponent implements OnInit {
       this.vendorService.register(this.company, this.companyContactName, this.companyEmail, this.address, this.internalContact, this.sector, (data: any)=>{
         if(data.status != undefined && data.status == "success"){
           that.app.vendor = data.vendor;
-          that.app.navigateToUrl("/vendors");
+          this.submitted = true;
         } else {
           that.error = data.error;
         }
@@ -62,17 +64,19 @@ export class VendorsComponent implements OnInit {
   }
 
   clear(){
-    this.company == "";
-    this.companyContactName == "";
-    this.address == "";
-    this.companyEmail == "";
-    this.internalContact == "";
-    this.sector == "";
+    this.submitted = false;
+      this.company = "";
+      this.companyContactName = ""
+      this.companyEmail = "";
+      this.address = "";
+      this.internalContact = "";
+      this.sector = "";
+      this.companySearch = "";
   }
 
   search(): void {
     let that = this;
-    this.vendorService.getByCompany(this.app.vendors.company, (data:any)=>{
+    this.vendorService.getByCompany(this.app.vendors.companySearch, (data:any)=>{
       that.vendors = data;
     })
   }
