@@ -1,0 +1,67 @@
+<!-- <div class="registerBg"> -->
+<div class="background">
+  <div class="registerForm">
+    <div *ngIf="!submitted">
+      <div class="textCenter heading">New User Details</div>
+
+        <input type="text" class ="firstname" placeholder="firstname" [(ngModel)] = "firstname" (keyup)="fieldChange()" />
+        <input type="text" class="lastname" placeholder="lastname" [(ngModel)] = "lastname" (keyup)="fieldChange()" />
+        <input type="text" class="email" placeholder="email" [(ngModel)] = "email" (keyup)="fieldChange()" />
+        <input type="password" class="password" placeholder="password" [(ngModel)] = "password" (keyup)="fieldChange()" />
+        <input type="text" class="mobile" placeholder="mobile" [(ngModel)] = "mobile" (keyup)="fieldChange()" />
+        <input type="text" class="company" placeholder="Company" [(ngModel)] = "company" (keyup)="fieldChange()" />
+        <span class="error-label textCenter" [ngClass]="(error=='')?'hidden':''">{{error}}</span>
+        <button class="register" (click)="register()">Add User</button>
+    </div>
+    <div *ngIf="submitted">
+      <h3>Submitted Successfully</h3>
+      <button (click)="clear()">Ok</button>
+    </div>
+  </div>
+
+
+
+    <div class="listview">
+      <table>
+        <colgroup>
+          <col class="column1">
+          <col class="column2">
+        </colgroup>
+        <tr>
+          <td colspan="2"class="searchrow">
+            <div class="formsearch"><input type="text" placeholder="Search by company" [(ngModel)]="company"/>
+            <button class="searchbutton" type="button" (click)="search()">Search</button></div>
+          </td>
+        </tr>
+        <tr>
+          <th colspan="2" class="tabletitle">User Profile</th>
+        </tr>
+        <tr>
+          <th>First Name: </th>
+          <td></td>
+          <!-- *ngFor="let user of users">{{user.firstName}} -->
+        </tr>
+        <!-- <tr>
+          <th>Last Name: {{user.lastName}}</th>
+          <td></td>
+        </tr>
+        <tr>
+          <th>email: {{user.email}}</th>
+          <td></td>
+        </tr>
+        <tr>
+          <th>Mobile: {{user.mobile}}</th>
+          <td></td>
+        </tr>
+        <tr>
+          <th>Company: {{user.company}}</th>
+          <td></td>
+        </tr>
+        <tr>
+          <th>Status: {{user.status}}</th>
+          <td></td>
+        </tr> -->
+      </table>
+    </div>
+    
+</div>
