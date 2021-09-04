@@ -22,6 +22,10 @@ export class VendorsComponent implements OnInit {
   public companySearch: any = "";
   public error: string = "";
   public submitted = false;
+  public currentIndex = -1;
+  public updating = false; 
+  public updated = false;
+  public currentVendor: any;
   // public vendorService: VendorService;
   
   constructor(public vendorService: VendorService, public api: ApiService, public app: AppComponent) {
@@ -47,6 +51,7 @@ export class VendorsComponent implements OnInit {
 
     let that = this;
 
+
     if(this.company == "" || this.companyContactName == "" || this.address == "" || this.companyEmail == "" || this.internalContact == "" ||  this.sector == ""){
       this.error = "All the fields are required to register a vendor";
     } else if (!re.test(this.companyEmail)){
@@ -63,8 +68,38 @@ export class VendorsComponent implements OnInit {
     }
   }
 
+  updateVendor(){
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  
+    let that = this;
+
+    // this.company = this.currentVendor.company;
+    // this.companyContactName = this.currentVendor.companyContactName;
+    // this.companyEmail = this.currentVendor.companyEmail;
+    // this.address = this.currentVendor.address;
+    // this.internalContact = this.currentVendor.internalContact;
+    // this.sector = this.currentVendor.sector;
+  
+    if(this.currentVendor.company == "" || this.currentVendor.companyContactName == "" || this.currentVendor.address == "" || this.currentVendor.companyEmail == "" || this.currentVendor.internalContact == "" ||  this.currentVendor.sector == ""){
+      this.error = "All the fields are required to update a vendor";
+    } else if (!re.test(this.currentVendor.companyEmail)){
+      this.error = "Please input a valid email address";
+    } else{
+      this.vendorService.updateVendor(this.currentVendor.company, this.currentVendor.companyContactName, this.currentVendor.companyEmail, this.currentVendor.address, this.currentVendor.internalContact, this.currentVendor.sector, (data: any)=>{
+        if(data.status != undefined && data.status == "success"){
+          that.app.vendor = data.vendor;
+          this.updated = true;
+        } else {
+          that.error = data.error;
+        }
+      });
+    }
+  }
+
   clear(){
     this.submitted = false;
+    this.updating = false;
+    this.updated = false;
       this.company = "";
       this.companyContactName = ""
       this.companyEmail = "";
@@ -72,18 +107,21 @@ export class VendorsComponent implements OnInit {
       this.internalContact = "";
       this.sector = "";
       this.companySearch = "";
+      this.currentVendor = null;
+      this.currentIndex = -1;
+      
   }
 
   search(): void {
     let that = this;
-    this.vendorService.getByCompany(this.app.vendors.companySearch, (data:any)=>{
+    this.vendorService.findByCompany(this.app.vendors.companySearch, (data:any)=>{
       that.vendors = data;
     })
   }
 
-  getMyAdverts(id: string, callback: any){
-    this.api.serverCall("GET", "/api/myAdverts/"+id, {}, (data: any)=>{
-      callback(data);
-    });
+  setActiveVendor(vendor: any, index: number): void {
+    this.currentVendor = vendor;
+    this.currentIndex = index;
+    this.updating = true;
   }
 }

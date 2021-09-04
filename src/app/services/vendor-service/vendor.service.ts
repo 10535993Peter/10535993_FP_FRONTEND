@@ -20,6 +20,18 @@ export class VendorService {
     });
   }
 
+  // updateVendor(company: any, companyContactName: any, companyEmail: any, address: any, internalContact: any, sector: any, callback: any){
+  //   this.api.serverCall("PUT", "/api/vendors/:id", {company: company, companyContactName: companyContactName, companyEmail: companyEmail, address: address, internalContact: internalContact, sector: sector}, (data: any)=>{
+  //     callback(data);
+  //   });
+  // }
+
+  updateVendor(currentVendor: { company: any; companyContactName: any; companyEmail: any; address: any; internalContact: any; sector: any; callback: any}){
+    this.api.serverCall("PUT", "/api/vendors/:id", {company: currentVendor.company, companyContactName: currentVendor.companyContactName, companyEmail: currentVendor.companyEmail, address: currentVendor.address, internalContact: currentVendor.internalContact, sector: currentVendor.sector}, (data: any)=>{
+      callback(data);
+    });
+  }
+
   getAll(callback: any) {
     this.api.serverCall("GET", "/api/vendors", null, (data: any)=>{
       callback(data);
@@ -31,7 +43,7 @@ export class VendorService {
   //     callback(data);
   // });
   
-  getByCompany(company: string, callback: any){
+  findByCompany(company: string, callback: any){
     this.api.serverCall("GET", "/api/vendors/"+company, {}, (data: any)=>{
       callback(data);
     });
@@ -44,4 +56,8 @@ export class VendorService {
     });
   }
 
+}
+
+function callback(data: any) {
+  throw new Error('Function not implemented.');
 }

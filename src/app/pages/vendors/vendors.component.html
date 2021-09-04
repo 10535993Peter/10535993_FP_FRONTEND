@@ -1,30 +1,63 @@
 <div class="background">
   <div class="form">
+
+    <!-- Add Vendor View -->
     <div *ngIf="!submitted">
-      <div class="textCenter heading">New Vendor Details</div>
+      <div *ngIf="!updating">
+        <div *ngIf="!updated">
+          <div class="textCenter heading">New Vendor Details</div>
 
-      <input type="text" class="company" placeholder="Company" [(ngModel)] = "company" (keyup)="fieldChange()" />
-      <input type="text" class="companyContactName" placeholder="Company contact" [(ngModel)] = "companyContactName" (keyup)="fieldChange()" />
-      <input type="text" class="companyEmail" placeholder="Company email" [(ngModel)] = "companyEmail" (keyup)="fieldChange()" />
-      <input type="text" class="address" placeholder="Address" [(ngModel)] = "address" (keyup)="fieldChange()" />
-      <input type="internalContact" class="internalContact" placeholder="Internal Contact" [(ngModel)] = "internalContact" (keyup)="fieldChange()" />
+          <input type="text" class="company" placeholder="Company" [(ngModel)] = "company" (keyup)="fieldChange()" />
+          <input type="text" class="companyContactName" placeholder="Company contact" [(ngModel)] = "companyContactName" (keyup)="fieldChange()" />
+          <input type="text" class="companyEmail" placeholder="Company email" [(ngModel)] = "companyEmail" (keyup)="fieldChange()" />
+          <input type="text" class="address" placeholder="Address" [(ngModel)] = "address" (keyup)="fieldChange()" />
+          <input type="internalContact" class="internalContact" placeholder="Internal Contact" [(ngModel)] = "internalContact" (keyup)="fieldChange()" />
 
-      <input type="text" class="sector" placeholder="Sector" [(ngModel)] = "sector" (keyup)="fieldChange()" />
+          <input type="text" class="sector" placeholder="Sector" [(ngModel)] = "sector" (keyup)="fieldChange()" />
+          <span class="error-label textCenter" [ngClass]="(error=='')?'hidden':''">{{error}}</span>
+          <div id="buttonfriends"><button class="registerVendor" (click)="register()">Add Vendor</button>
+          <button class="clear" (click)="clear()">Clear</button></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Update Vendor View -->
+    <div *ngIf="updating">
+      <div class="textCenter heading">Update Vendor Details</div>
+
+      <input type="text" class="company" placeholder="Company" [(ngModel)] = "currentVendor.company" (keyup)="fieldChange()" />
+      <input type="text" class="companyContactName" placeholder="Company contact" [(ngModel)] = "currentVendor.companyContactName" (keyup)="fieldChange()" />
+      <input type="text" class="companyEmail" placeholder="Company email" [(ngModel)] = "currentVendor.companyEmail" (keyup)="fieldChange()"/>
+      <input type="text" class="address" placeholder="Address" [(ngModel)] = "currentVendor.address" (keyup)="fieldChange()" />
+      <input type="internalContact" class="internalContact" placeholder="Internal Contact" [(ngModel)] = "currentVendor.internalContact" (keyup)="fieldChange()" />
+
+      <input type="text" class="sector" placeholder="Sector" [(ngModel)] = "currentVendor.sector" (keyup)="fieldChange()" />
       <span class="error-label textCenter" [ngClass]="(error=='')?'hidden':''">{{error}}</span>
-      <div id="buttonfriends"><button class="registerVendor" (click)="register()">Add Vendor</button>
+      <div id="buttonfriends"><button class="updateVendor" (click)="updateVendor()">Update Vendor</button>
       <button class="clear" (click)="clear()">Clear</button></div>
     </div>
+
+    <!-- Confirmation View -->
     <div *ngIf="submitted">
-      <h3 class="message">Vendor added successfully</h3>
+        <h3 class="message">Vendor added successfully</h3>
+        <button class="confirmationButton" (click)="clear()">Ok</button>
+    </div>
+
+    <div *ngIf="updated">
+      <h3 class="message">Vendor updated successfully</h3>
       <button class="confirmationButton" (click)="clear()">Ok</button>
     </div>
+
   </div>
+
+  
+
 
   <div class="listview">
     <table id="vendorslist">
       <tr>
         <td colspan="6" class="searchrow">
-          <div class="formsearch"><input type="text" placeholder="Search by company" [(ngModel)]="companySearch"/>
+          <div class="formsearch"><input class="search" type="text" placeholder="Search by company" [(ngModel)]="companySearch"/>
           <button class="searchbutton" type="button" (click)="search()">Search</button></div>
         </td>
       </tr>
@@ -32,8 +65,8 @@
         <tr>
           <th class=header *ngFor="let col of columns">{{col}}</th> 
         </tr>
-        <tr class=tablebody *ngFor="let vendor of vendors">
-          <td *ngFor="let col of index">{{vendor[col]}}</td>
+        <tr class=tablebody *ngFor="let vendor of vendors; let i = index" >
+          <td *ngFor="let col of index" id="tablelinks" [class.active]="i == currentIndex" (click)="setActiveVendor(vendor, i)">{{vendor[col]}}</td>
         </tr>
       </div>
     </table>

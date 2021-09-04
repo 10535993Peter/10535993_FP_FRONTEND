@@ -8,7 +8,7 @@
     .form{
         float: left;
         width: calc(30% - 20px);
-        height: 100%;
+        height: 80vh;
         padding: 20px 15px;
         border-radius: $cardBorderRadius;
         background-color: #333;
@@ -16,19 +16,18 @@
     
         .heading{
             color: white;
-            margin-bottom: 15px;
+            margin-bottom: 1.5vh;
             font-weight: 500;
         }
 
         .error-label{
-            margin: 5px;
+            margin: 1vh;
             display: block;
             width: calc(100% - 20px);
             color: red;
             border-radius: $borderRadius;
-            padding: 5px;
-            font-size: 12px;
-            // min-height: 30px;
+            padding: 1.2vh;
+            font-size: 1vh;
             font-weight: 300;
         }
 
@@ -37,19 +36,20 @@
             text-align: center;
         }
         
-        #buttonfriends{
+        .formsearch{
             width: 100%;
         }
     }
             
         input{
             // display: left;
-            display: inline-block;
-            width: calc(50% - 20px);
-            padding: 10px;
+            
+            width: calc(100% - 20px);
+            height: 100%;
+            padding: 1.5vh;
             outline: none;
             border: none;
-            margin: 10px;
+            margin: 1.5vh;
             border-radius: $borderRadius;
             // min-height: 44px;
             font-size: 0.8vw;
@@ -58,10 +58,11 @@
         }
         
         button{
-            display: inline-block;
-            width: calc(50% - 20px);
-            padding: 10px;
-            margin: 10px;
+            
+            width: calc(100% - 20px);
+            height: 95%;
+            padding: 1.5vh;
+            margin: 1.5vh;
             // min-height: 44px;
             border-radius: $borderRadius;
             outline: none;
@@ -69,7 +70,7 @@
             background: rgba(171, 248, 156, 0.3);
             color: #dddddd;
             font-weight: 500;
-            font-size: 16px;
+            font-size: 2vh;
             text-transform: uppercase;
             position: relative;
             bottom: 0px;
@@ -83,12 +84,12 @@
 
         button.searchbutton{
             display: inline-block;
-            padding: 10px;
-            // width: calc(20% - 20px);
+            padding: 1.5vh;
+            width: calc(50% - 20px);
             outline: none;
-            margin: 10px;
+            margin: 1.5vh;
             min-height: 44px;
-            font-size: 1.1vw;
+            font-size: 1.5vw;
         }
 
         button:hover {
@@ -109,11 +110,18 @@
             border-radius: $cardBorderRadius;
             border-style: hidden;    
             font-size: auto;
-            margin-left: 5px;
-            padding: 10x 10px;
+            width: 100%;
+
+            margin-left: 1vw;
+            padding: 1.5vw 1.5vh;
             // min-height: 300px;
             background-color: white;
             height: calc(100%-20px);
+        }
+
+        #tablelinks:hover {
+            cursor: pointer;
+            background-color: #ddddddb1;
         }
 
         .searchrow{
@@ -123,16 +131,14 @@
             border-top-left-radius: $cardBorderRadius;
         }
 
-        input.formsearch{
+        input.search{
             display: inline-block;
-            padding: 10px;
-            // width: calc(60% - 20px);
+            width: calc(50% - 2vw);
+            height: 95%;
             outline: none;
             background: white;
             font: #333;
-            margin: 10px;
             min-height: 44px;
-            // font-size: 11vw;
         }
 
         td, th {
@@ -142,7 +148,7 @@
         }
 
         #scrolldiv{
-            height: 100%;
+            max-height: 60vh;
             overflow-y: scroll;
         }
     }
