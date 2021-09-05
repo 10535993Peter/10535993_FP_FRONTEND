@@ -7,8 +7,8 @@ import { UserComponent } from './pages/user/user.component';
 import { QuestionnairesComponent } from './pages/questionnaires/questionnaires.component';
 import { VendorsComponent } from './pages/vendors/vendors.component';
 import { UploadsComponent } from './pages/uploads/uploads.component';
-import { TestPage2Component } from './pages/test-page2/test-page2.component';
 import { SettingsComponent } from './pages/settings/settings.component';
+import { QuestionnairebuilderComponent } from './questionnairebuilder/questionnairebuilder.component';
 
 
 const routes: Routes = [
@@ -33,6 +33,11 @@ const routes: Routes = [
 		component : DashboardComponent
 	},
 	{
+		path : 'questionnairebuilder',
+		pathMatch : 'full',
+		component : QuestionnairebuilderComponent
+	},
+	{
 		path : 'questionnaires',
 		pathMatch : 'full',
 		component : QuestionnairesComponent
@@ -46,11 +51,6 @@ const routes: Routes = [
 		path : 'uploads',
 		pathMatch : 'full',
 		component : UploadsComponent
-	},
-	{
-		path : 'test-page2',
-		pathMatch : 'full',
-		component : TestPage2Component
 	},
 	{
 		path : 'settings',

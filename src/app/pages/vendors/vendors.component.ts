@@ -13,6 +13,7 @@ export class VendorsComponent implements OnInit {
   faPlus = faPlus;
   public vendors: any = [];
 
+  public _id: any;
   public company: any = "";
   public companyContactName: any = "";
   public companyEmail: any = "";
@@ -26,14 +27,13 @@ export class VendorsComponent implements OnInit {
   public updating = false; 
   public updated = false;
   public currentVendor: any;
-  // public vendorService: VendorService;
   
   constructor(public vendorService: VendorService, public api: ApiService, public app: AppComponent) {
     let that = this;
     this.vendorService.getAll((data:any)=>{
       that.vendors = data;
     });
-    // this.vendorService = vendorService;
+
   }
 
   ngOnInit(): void {
@@ -73,19 +73,24 @@ export class VendorsComponent implements OnInit {
   
     let that = this;
 
-    // this.company = this.currentVendor.company;
-    // this.companyContactName = this.currentVendor.companyContactName;
-    // this.companyEmail = this.currentVendor.companyEmail;
-    // this.address = this.currentVendor.address;
-    // this.internalContact = this.currentVendor.internalContact;
-    // this.sector = this.currentVendor.sector;
+
+    this._id = this.currentVendor.id;
+    this.company = this.currentVendor.company;
+    this.companyContactName = this.currentVendor.companyContactName;
+    this.companyEmail = this.currentVendor.companyEmail;
+    this.address = this.currentVendor.address;
+    this.internalContact = this.currentVendor.internalContact;
+    this.sector = this.currentVendor.sector;
   
-    if(this.currentVendor.company == "" || this.currentVendor.companyContactName == "" || this.currentVendor.address == "" || this.currentVendor.companyEmail == "" || this.currentVendor.internalContact == "" ||  this.currentVendor.sector == ""){
+    // if(this.currentVendor.company == "" || this.currentVendor.companyContactName == "" || this.currentVendor.address == "" || this.currentVendor.companyEmail == "" || this.currentVendor.internalContact == "" ||  this.currentVendor.sector == "")
+    if(this.company == "" || this.companyContactName == "" || this.address == "" || this.companyEmail == "" || this.internalContact == "" ||  this.sector == "")
+
+    {
       this.error = "All the fields are required to update a vendor";
     } else if (!re.test(this.currentVendor.companyEmail)){
       this.error = "Please input a valid email address";
     } else{
-      this.vendorService.updateVendor(this.currentVendor.company, this.currentVendor.companyContactName, this.currentVendor.companyEmail, this.currentVendor.address, this.currentVendor.internalContact, this.currentVendor.sector, (data: any)=>{
+      this.vendorService.updateVendor(this.currentVendor._id, this.currentVendor.company, this.currentVendor.companyContactName, this.currentVendor.companyEmail, this.currentVendor.address, this.currentVendor.internalContact, this.currentVendor.sector, (data: any)=>{
         if(data.status != undefined && data.status == "success"){
           that.app.vendor = data.vendor;
           this.updated = true;
@@ -112,12 +117,33 @@ export class VendorsComponent implements OnInit {
       
   }
 
-  search(): void {
+  searchBtn(): void {
     let that = this;
     this.vendorService.findByCompany(this.app.vendors.companySearch, (data:any)=>{
       that.vendors = data;
     })
   }
+
+
+//   searchBtn() {
+//     var input, filter, tr, td, col, i, txtValue;
+//     input = document.getElementById("searchInput");
+//     filter = input.value.toUpperCase();
+//     tr = document.getElementById("tablebody");
+//     td = tr.getElementsByTagName("td");
+//     for (i = 0; i < td.length; i++) {
+//         col = td[i].getElementsByTagName("col")[0];
+//         txtValue = col.textContent || col.innerText;
+//         if (txtValue.toUpperCase().indexOf(filter) > -1) {
+//             td[i].style.display = "";
+//         } else {
+//             td[i].style.display = "none";
+//         }
+//     }
+// }
+// applyFilter(filterValue: string){
+//   this.dataSource.filter = filterValue.trim().toLowerCase();
+// }
 
   setActiveVendor(vendor: any, index: number): void {
     this.currentVendor = vendor;

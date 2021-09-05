@@ -1,25 +1,30 @@
-<div class="questionnairesBg">
+<div class="background">
     <div class="buttonBg">
-      <button><li class="nav" [routerLink] = "['/questionnaires']"></li>Build new questionnaire</button>
-      <button><li class="nav" [routerLink] = "['/questionnaires']"></li>Build new questionnaire</button>
+      <button class="nav" [routerLink] = "['/questionnairebuilder']">Build new questionnaire</button>
+      <button class="nav" [routerLink] = "['/questionnaires']">View assigned questionnaires</button>
     </div>
     <div class="listview">
       <table>
-        <tr>
-          <th class=headerleft>Company</th>
-          <th>Contact</th>
-          <th class=headerright>Sector</th>
-        </tr>
-        <tr>
-          <td>AS Todin</td>
-          <td>Maria Anders</td>
-          <td>Health</td>
-        </tr>
-        <tr>
-          <td>Centro Banko Moctezuma</td>
-          <td>Francisco Chang</td>
-          <td>Banking</td>
-        </tr>
+        <div class="heading">
+          <div class="textCenter heading">Questionnaire Templates</div>
+        </div>
+        <div id="scrolldiv">
+          <tr class="fields">
+            <th>Name</th>
+            <th>Topic</th>
+            <th>Stage</th>
+          </tr>
+          <tr>
+            <td>TPRM Risk Triage</td>
+            <td>TRPM</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>SAAS assessment</td>
+            <td>TPRM</td>
+            <td>2</td>
+          </tr>
+      </div>
       </table>
     </div>
  </div>

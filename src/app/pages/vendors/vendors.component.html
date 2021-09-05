@@ -30,8 +30,8 @@
       <input type="text" class="companyEmail" placeholder="Company email" [(ngModel)] = "currentVendor.companyEmail" (keyup)="fieldChange()"/>
       <input type="text" class="address" placeholder="Address" [(ngModel)] = "currentVendor.address" (keyup)="fieldChange()" />
       <input type="internalContact" class="internalContact" placeholder="Internal Contact" [(ngModel)] = "currentVendor.internalContact" (keyup)="fieldChange()" />
-
       <input type="text" class="sector" placeholder="Sector" [(ngModel)] = "currentVendor.sector" (keyup)="fieldChange()" />
+      <label class="id" [(ngModel)] = "currentVendor._id">ID - {{currentVendor._id}}</label>
       <span class="error-label textCenter" [ngClass]="(error=='')?'hidden':''">{{error}}</span>
       <div id="buttonfriends"><button class="updateVendor" (click)="updateVendor()">Update Vendor</button>
       <button class="clear" (click)="clear()">Clear</button></div>
@@ -50,15 +50,14 @@
 
   </div>
 
-  
-
 
   <div class="listview">
     <table id="vendorslist">
       <tr>
         <td colspan="6" class="searchrow">
-          <div class="formsearch"><input class="search" type="text" placeholder="Search by company" [(ngModel)]="companySearch"/>
-          <button class="searchbutton" type="button" (click)="search()">Search</button></div>
+          <div class="formsearch"><input id="searchInput" type="text" placeholder="Search by company" />
+            <!-- (keyup)=applyFilter($event.target.value) -->
+          <button id="searchBtn" type="button" (click)="searchBtn()">Search</button></div>
         </td>
       </tr>
       <div id="scrolldiv">
@@ -71,4 +70,5 @@
       </div>
     </table>
   </div>
+
 </div>

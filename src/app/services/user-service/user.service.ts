@@ -53,4 +53,11 @@ export class UserService {
     });
   }
 
+  getUserCount(callback: any){
+    this.api.serverCall("GET", "api/userCount",{}, (data: any)=>{
+      callback(data);
+    }
+    )
+  }
+
 }
