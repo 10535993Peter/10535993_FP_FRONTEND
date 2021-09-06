@@ -12,7 +12,6 @@
         padding: 20px 15px;
         border-radius: $cardBorderRadius;
         background-color: #333;
-        // font-size: 18px;
     
         .heading{
             color: white;
@@ -41,9 +40,7 @@
         }
     }
             
-        input{
-            // display: left;
-            
+        input{            
             width: calc(100% - 20px);
             height: 100%;
             padding: 1.5vh;
@@ -51,7 +48,6 @@
             border: none;
             margin: 1.5vh;
             border-radius: $borderRadius;
-            // min-height: 44px;
             font-size: 0.8vw;
             position: relative;
             bottom: 0px;
@@ -63,7 +59,6 @@
             height: 95%;
             padding: 1.5vh;
             margin: 1.5vh;
-            // min-height: 44px;
             border-radius: $borderRadius;
             outline: none;
             border: none;

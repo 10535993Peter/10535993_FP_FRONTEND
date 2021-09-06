@@ -1,3 +1,5 @@
+// This pie chart was to be displayed on the dashboard
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

@@ -1,3 +1,5 @@
+//questionnaire builder is where the assessments can be built by the admin - further development required
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

@@ -6,7 +6,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { UserComponent } from './pages/user/user.component';
 import { QuestionnairesComponent } from './pages/questionnaires/questionnaires.component';
 import { VendorsComponent } from './pages/vendors/vendors.component';
-import { UploadsComponent } from './pages/uploads/uploads.component';
+// import { UploadsComponent } from './pages/uploads/uploads.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { QuestionnairebuilderComponent } from './questionnairebuilder/questionnairebuilder.component';
 
@@ -47,11 +47,11 @@ const routes: Routes = [
 		pathMatch : 'full',
 		component : VendorsComponent
 	},
-	{
-		path : 'uploads',
-		pathMatch : 'full',
-		component : UploadsComponent
-	},
+	// {
+	// 	path : 'uploads',
+	// 	pathMatch : 'full',
+	// 	component : UploadsComponent
+	// },
 	{
 		path : 'settings',
 		pathMatch : 'full',

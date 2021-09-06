@@ -82,7 +82,6 @@ export class VendorsComponent implements OnInit {
     this.internalContact = this.currentVendor.internalContact;
     this.sector = this.currentVendor.sector;
   
-    // if(this.currentVendor.company == "" || this.currentVendor.companyContactName == "" || this.currentVendor.address == "" || this.currentVendor.companyEmail == "" || this.currentVendor.internalContact == "" ||  this.currentVendor.sector == "")
     if(this.company == "" || this.companyContactName == "" || this.address == "" || this.companyEmail == "" || this.internalContact == "" ||  this.sector == "")
 
     {
@@ -124,6 +123,14 @@ export class VendorsComponent implements OnInit {
     })
   }
 
+  setActiveVendor(vendor: any, index: number): void {
+    this.currentVendor = vendor;
+    this.currentIndex = index;
+    this.updating = true;
+  }
+}
+
+//ROUGHWORK
 
 //   searchBtn() {
 //     var input, filter, tr, td, col, i, txtValue;
@@ -144,10 +151,3 @@ export class VendorsComponent implements OnInit {
 // applyFilter(filterValue: string){
 //   this.dataSource.filter = filterValue.trim().toLowerCase();
 // }
-
-  setActiveVendor(vendor: any, index: number): void {
-    this.currentVendor = vendor;
-    this.currentIndex = index;
-    this.updating = true;
-  }
-}
